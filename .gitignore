@@ -1,0 +1,9 @@
+/node_modules
+/build
+/.svelte-kit
+/package
+/.idea
+.DS_Store
+.env
+.env.*
+!.env.example
