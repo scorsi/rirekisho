@@ -7,8 +7,12 @@
   const qrcode = new QRCode({
     content: "https://scorsi.github.io/resume/",
     padding: 0,
-    width: 50,
-    height: 50,
+    width: 64,
+    height: 64,
+    ecl: "H",
+    join: true,
+    color: "white",
+    background: "transparent"
   });
 </script>
 
@@ -72,9 +76,9 @@
       <Fa icon={faCompass} class="inline" />
     </li>
   </ul>
-  <div class="hidden rounded border px-1 pb-1 text-center flex flex-col print:block">
+  <div class="hidden rounded px-1 pb-1 text-center flex flex-col bg-blue-500 text-white print:block">
     <span class="text-xs">version en ligne</span>
-    <div class="px-3 py-1">
+    <div class="px-1 py-0.5">
       {@html qrcode.svg()}
     </div>
   </div>
