@@ -26,5 +26,8 @@
 		"svelte-preprocess": "^4.10.1",
 		"tailwindcss": "^3.0.12"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"qrcode-svg": "^1.1.0"
+	}
 }
