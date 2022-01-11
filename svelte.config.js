@@ -13,8 +13,8 @@ const config = {
 		target: '#svelte',
 
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/resume/' : '/',
-			assets: process.env.NODE_ENV === 'production' ? '/resume/' : '/'
+			base: process.env.NODE_ENV === 'production' ? '/resume' : '',
+			assets: process.env.NODE_ENV === 'production' ? '/resume' : ''
 		},
 	},
 
