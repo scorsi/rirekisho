@@ -48,9 +48,9 @@
     </h2>
     <div slot="content">
       <ul class="text-gray-600 text-center divide-y">
-        <li class="py-3">Vélo et course à pied.</li>
-        <li class="py-3">Romans et mangas<span class="print:hidden"> dans le thème fantastique et science fiction</span>.</li>
-        <li class="py-3">Dessins.</li>
+        <li class="py-3 print:text-sm print:py-2">Vélo et course à pied.</li>
+        <li class="py-3 print:text-sm print:py-2">Romans et mangas<span class="print:hidden"> dans le thème fantastique et science fiction</span>.</li>
+        <li class="py-3 print:text-sm print:py-2">Dessins.</li>
       </ul>
     </div>
   </BlockContainer>
