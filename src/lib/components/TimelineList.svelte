@@ -6,11 +6,11 @@
 <ul class="-mb-8 print:-mb-4">
   <TimelineItem>
     <svelte:fragment slot="title">
-      Lead Developer / Tech Lead chez
+      Lead Développeur / Lead Technique chez
       <a href="https://adfinitas.fr" target="_blank" class="text-blue-400">Adfinitas</a>
     </svelte:fragment>
     <ul slot="description">
-      <li>Manager du pôle technique/dév, d'une équipe de 5 développeurs et des freelances en missions.</li>
+      <li>Manager du pôle dév/technique, d'une équipe de 5 développeurs et des freelances en missions.</li>
       <li>Accompagnement des équipes marketings et des clients sur leurs projets.</li>
       <li>Développement et architecture de différents projets internes comme externes pour les clients.</li>
     </ul>
@@ -85,7 +85,7 @@
   </TimelineItem>
   <TimelineItem displayLateralBar={false}>
     <svelte:fragment slot="title">
-      Création de mon auto-entreprise comme développeur fullstack
+      Création de mon auto-entreprise comme Développeur Fullstack
     </svelte:fragment>
     <p slot="description">Pendant plus d'un 1 an et demi et un total de 5 projets pour divers clients. </p>
     <svelte:fragment slot="date">
