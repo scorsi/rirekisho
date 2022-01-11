@@ -25,7 +25,7 @@
     <div slot="content">
       <div class="grid grid-rows divide-y gap-2">
         {#each competences as categorie}
-          <div class="grid grid-cols-3 gap-4 items-center">
+          <div class="grid grid-cols-3 gap-4 items-center pt-2 first:pt-0">
             <div class="text-right text-gray-800 print:text-sm">{categorie.name}</div>
             <div class="text-left col-span-2 flex gap-1">
               {#each categorie.values as value}
