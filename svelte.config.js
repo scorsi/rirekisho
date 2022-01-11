@@ -10,9 +10,14 @@ const config = {
 			fallback: null,
 		}),
 
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
+		target: '#svelte',
+
+		paths: {
+			base: process.env.NODE_ENV === 'production' ? '/resume/' : '/',
+			assets: process.env.NODE_ENV === 'production' ? '/resume/' : '/'
+		},
 	},
+
 
 	preprocess: [preprocess({})]
 };
