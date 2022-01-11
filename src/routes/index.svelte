@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+  <title>CV de Sylvain Corsini</title>
 </svelte:head>
 
 <div class="container mx-auto sm:px-6 lg:px-8">
