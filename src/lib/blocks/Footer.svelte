@@ -10,9 +10,9 @@
     </p>
   </div>
 
-  <div class="text-center text-xs print:hidden">
+  <a class="text-center text-xs text-blue-400 print:hidden" href="javascript:window.print()">
     Ce CV est imprimable/téléchargeable en PDF.
-  </div>
+  </a>
 
   <div class="hidden text-xs print:block">
     Ce CV est visionnable en HTML / CSS (préférable) : <a href="https://scorsi.github.io/resume" target="_blank" class="text-blue-400">scorsi.github.io/resume</a>.
