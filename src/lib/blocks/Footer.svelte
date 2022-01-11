@@ -15,6 +15,6 @@
   </div>
 
   <div class="hidden text-xs print:block">
-    Ce CV est visionnable en HTML / CSS (préférable) : <a href="" target="_blank" class="text-blue-400">github.com/scorsi/resume</a>.
+    Ce CV est visionnable en HTML / CSS (préférable) : <a href="https://scorsi.github.io/resume" target="_blank" class="text-blue-400">scorsi.github.io/resume</a>.
   </div>
 </div>
