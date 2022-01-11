@@ -1,4 +1,5 @@
 <script>
+  import {base} from "$app/paths";
   import Fa from "svelte-fa/src/fa.svelte";
   import { faAt, faCompass, faPhone } from "@fortawesome/free-solid-svg-icons";
 </script>
@@ -40,5 +41,5 @@
       </ul>
     </li>
   </ul>
-  <img src="/img.png" class="rounded-full h-64 shadow-2xl print:shadow-none print:h-16" />
+  <img src="{base}/img.png" class="rounded-full h-64 shadow-2xl print:shadow-none print:h-16" />
 </div>
