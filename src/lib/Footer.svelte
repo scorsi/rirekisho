@@ -1,4 +1,4 @@
-<div class="text-center grid grid-cols-1 gap-2 print:absolute print:bottom-0 print:w-full">
+<section class="text-center grid grid-cols-1 gap-2 print:absolute print:bottom-0 print:w-full">
   <p class="print:text-xs">
     Créé avec
     <a href="https://kit.svelte.dev/" target="_blank" class="text-blue-400">SvelteKit</a>
@@ -18,4 +18,4 @@
     Ce CV est visionnable en HTML / CSS (préférable) : <a href="https://scorsi.github.io/resume" target="_blank" class="text-blue-400">scorsi.github.io/resume</a>.
   </div>
   -->
-</div>
+</section>

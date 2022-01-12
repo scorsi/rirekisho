@@ -16,7 +16,7 @@
   });
 </script>
 
-<div class="flex items-center gap-4">
+<section class="flex items-center gap-4">
   <img src="{base}/img.png" class="rounded-full h-64 shadow-2xl print:shadow-none print:h-16" />
   <ul class="divide-y-2 divide-gray-300">
     <li class="py-2 font-light text-shadow-lg print:text-shadow-none">
@@ -82,7 +82,7 @@
       {@html qrcode.svg()}
     </div>
   </div>
-</div>
+</section>
 <hr class="hidden mt-2 print:block" />
 <div class="flex mt-16 print:mt-6">
   <div class="text-center text-md text-gray-600 relative mx-auto print:text-xs print:text-left print:ml-20">

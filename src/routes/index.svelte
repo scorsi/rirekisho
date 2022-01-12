@@ -1,7 +1,9 @@
 <script>
-  import Header from "$lib/blocks/Header.svelte";
-  import Footer from "$lib/blocks/Footer.svelte";
-  import Body from "$lib/blocks/Body.svelte";
+  import Header from "$lib/Header.svelte";
+  import Footer from "$lib/Footer.svelte";
+  import Parcours from "$lib/blocks/Parcours.svelte";
+  import Competences from "$lib/blocks/Competences.svelte";
+  import Hobbies from "$lib/blocks/Hobbies.svelte";
 </script>
 
 <svelte:head>
@@ -14,10 +16,16 @@
   <title>CV de Sylvain Corsini</title>
 </svelte:head>
 
-<div class="container mx-auto sm:px-6 lg:px-8">
+<section class="container mx-auto sm:px-6 lg:px-8">
   <div class="bg-gray-100 my-12 px-20 py-16 rounded-3xl shadow-2xl print:bg-white print:my-0 print:p-4 print:shadow-none">
     <Header />
-    <Body />
+    <div class="mt-16 print:mt-8">
+      <Parcours />
+    </div>
+    <div class="grid grid-cols-2 gap-8 mt-8 mb-16 print:mb-2 print:gap-4 print:mt-4">
+      <Competences />
+      <Hobbies />
+    </div>
     <Footer />
   </div>
-</div>
+</section>
