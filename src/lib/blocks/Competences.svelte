@@ -1,6 +1,6 @@
 <script>
   import BlockContainer from "$lib/components/BlockContainer.svelte";
-  import competences from "$lib/data/compentences.json";
+  import competences from "$lib/data/competences.json";
   import { tooltip } from "$lib/tooltip";
 </script>
 
