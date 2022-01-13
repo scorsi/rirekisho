@@ -1,6 +1,6 @@
 <script>
   import BlockContainer from "$lib/components/BlockContainer.svelte";
-  import { parcours } from "$lib/data.js";
+  import parcours from "$lib/data/parcours.json";
   import { faCheck, faChevronDown, faChevronRight, faChevronUp } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa";
 

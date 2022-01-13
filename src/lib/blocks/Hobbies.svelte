@@ -1,6 +1,6 @@
 <script>
   import BlockContainer from "$lib/components/BlockContainer.svelte";
-  import { hobbies } from "$lib/data.js";
+  import hobbies from "$lib/data/hobbies.json";
   import Fa from "svelte-fa";
   import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
