@@ -16,14 +16,16 @@
   });
 </script>
 
-<section class="flex flex-col text-center sm:text-left sm:flex-row items-center gap-4">
-  <img src="{base}/img.png" class="rounded-full h-40 sm:h-64 shadow-2xl print:shadow-none print:h-16" />
-  <ul class="divide-y sm:divide-y-2 divide-gray-300">
-    <li class="py-0.5 sm:py-2 font-light text-shadow-lg print:text-shadow-none">
-      <h1 class="text-4xl sm:text-7xl print:text-xl">Sylvain Corsini</h1>
-      <p class="text-xl sm:text-5xl text-gray-600 print:text-lg">Développeur Cloud&nbsp;&&nbsp;Fullstack</p>
+<section class="mx-6 sm:mx-0 lg:flex text-center lg:text-left items-center md:gap-4">
+  <img src="{base}/img.png"
+       class="mx-auto lg:mx-0 z-[10] rounded-full h-40 sm:h-48 lg:h-64 shadow-2xl print:shadow-none print:h-16" />
+  <ul
+    class="divide-y lg:divide-y-2 divide-gray-400 bg-gray-200 lg:bg-inherit	lg:rounded-none p-4 sm:px-10 pt-12 rounded-lg -mt-10 lg:m-0 lg:p-0 rounded-b-none z-0">
+    <li class="py-1 lg:py-2 font-light text-shadow-lg print:text-shadow-none">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl print:text-xl">Sylvain Corsini</h1>
+      <p class="text-xl sm:text-2xl md:text-3xl xl:text-5xl text-gray-600 print:text-lg">Développeur Cloud&nbsp;&&nbsp;Fullstack</p>
     </li>
-    <li class="py-0.5 sm:py-2 print:hidden">
+    <li class="py-1 lg:py-2 print:hidden">
       <ul class="text-gray-600 text-left">
         <li>
           <Fa icon={faAt} class="inline" />
@@ -46,13 +48,14 @@
       </ul>
     </li>
   </ul>
-  <ul class="sm:ml-auto sm:place-self-start rounded-lg text-blue-600 border-blue-600 border sm:border-none sm:bg-blue-600 sm:text-white p-3 print:hidden">
-    <li class="flex items-center p-1 rounded hover:bg-blue-400">
-      <i class="devicon-github-plain text-2xl"></i>
+  <ul
+    class="divide-y p-4 lg:divide-y-0 sm:ml-auto sm:place-self-start sm:px-10 lg:p-2 xl:p-4 rounded-lg border rounded-t-none lg:rounded-t-lg sm:border-none bg-blue-600 text-white print:hidden">
+    <li class="flex items-center p-1 lg:rounded hover:bg-blue-400">
+      <i class="devicon-github-plain lg:text-2xl"></i>
       <a href="https://github.com/scorsi" target="_blank" class="ml-2">scorsi</a>
     </li>
-    <li class="flex items-center mt-1 p-1 rounded hover:bg-blue-400">
-      <i class="devicon-linkedin-plain text-2xl"></i>
+    <li class="flex items-center lg:mt-1 p-1 lg:rounded hover:bg-blue-400">
+      <i class="devicon-linkedin-plain lg:text-2xl"></i>
       <a href="https://www.linkedin.com/in/dev-scorsi/" target="_blank" class="ml-2">dev-scorsi</a>
     </li>
   </ul>
@@ -84,10 +87,10 @@
   </div>
 </section>
 <hr class="hidden mt-2 print:block" />
-<div class="flex mt-16 print:mt-6">
-  <div class="text-center text-md text-gray-600 relative mx-auto print:text-xs print:text-left print:ml-20">
+<div class="flex mt-8 sm:mt-16 print:mt-6 mx-10 sm:mx-0">
+  <div class="text-justify sm:text-center text-md text-gray-600 relative mx-auto print:text-xs print:text-left print:ml-20">
     <span class="absolute -left-3 -top-3 text-blue-200 text-2xl z-0 print:text-xl"><Fa icon={faQuoteLeft} /></span>
-    <span class="absolute -right-3 -bottom-3 text-blue-200 text-2xl z-0 print:hidden"><Fa icon={faQuoteRight} /></span>
+    <span class="absolute -right-3 -bottom-3 text-blue-200 text-2xl z-0 hidden sm:block print:hidden"><Fa icon={faQuoteRight} /></span>
     <p class="relative z-1">
       Après 4 ans chez Adfinitas, d'abord comme Développeur puis comme Lead Développeur,
       j'ai décidé de vivre de nouvelles expériences.
