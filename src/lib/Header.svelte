@@ -20,7 +20,7 @@
   <img src="{base}/img.png"
        class="mx-auto lg:mx-0 z-[10] rounded-full h-40 sm:h-48 lg:h-64 shadow-2xl print:shadow-none print:h-16" />
   <ul
-    class="divide-y lg:divide-y-2 divide-gray-400 bg-gray-200 lg:bg-inherit	lg:rounded-none p-4 sm:px-10 pt-12 rounded-lg -mt-10 lg:m-0 lg:p-0 rounded-b-none z-0">
+    class="divide-y lg:divide-y-2 divide-gray-400 bg-gray-200 lg:bg-inherit	lg:rounded-none p-4 sm:px-10 pt-12 rounded-t-xl md:rounded-t-2xl -mt-10 lg:m-0 lg:p-0 z-0">
     <li class="py-1 lg:py-2 font-light text-shadow-lg print:text-shadow-none">
       <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl print:text-xl">Sylvain Corsini</h1>
       <p class="text-xl sm:text-2xl md:text-3xl xl:text-5xl text-gray-600 print:text-lg">Développeur Cloud&nbsp;&&nbsp;Fullstack</p>
@@ -49,7 +49,7 @@
     </li>
   </ul>
   <ul
-    class="divide-y p-4 lg:divide-y-0 sm:ml-auto sm:place-self-start sm:px-10 lg:p-2 xl:p-4 rounded-lg border rounded-t-none lg:rounded-t-lg sm:border-none bg-blue-600 text-white print:hidden">
+    class="divide-y p-4 lg:divide-y-0 sm:ml-auto sm:place-self-start sm:px-10 lg:p-2 xl:p-4 rounded-b-xl md:rounded-b-2xl border lg:rounded-lg sm:border-none bg-blue-600 text-white print:hidden">
     <li class="flex items-center p-1 lg:rounded hover:bg-blue-400">
       <i class="devicon-github-plain lg:text-2xl"></i>
       <a href="https://github.com/scorsi" target="_blank" class="ml-2">scorsi</a>
