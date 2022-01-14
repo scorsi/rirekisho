@@ -34,19 +34,19 @@
               </span>
             </div>
             <div class="min-w-0 flex-1 flex flex-col pt-1.5">
-              <div class="flex justify-between space-x-4">
+              <div class="md:flex justify-between md:space-x-4">
                 <div class="-mt-1 print:-mt-2">
-                  <h3 class="text-lg text-gray-800 print:text-md print:inline">
+                  <h3 class="sm:text-lg md:text-xl text-gray-800 print:text-md print:inline">
                     {e.title}
                   </h3>
                   {#if e.company}
-                    <h4 class="text-md print:text-xs print:inline">
+                    <h4 class="print:text-xs print:inline">
                       <a href="{e.companyLink}" target="_blank" class="text-blue-400">{e.company}</a>
                       <span class="text-gray-500">{e.location}</span>
                     </h4>
                   {/if}
                 </div>
-                <div class="text-right text-sm whitespace-nowrap text-gray-600 print:text-xs">
+                <div class="md:text-right text-xs md:text-sm whitespace-nowrap text-gray-600 print:text-xs">
                   {#if typeof e.date === "object"}
                     {e.date.from} <span class="text-gray-400">—</span> {e.date.to}
                     <span class="text-gray-400">({e.date.duration})</span>
