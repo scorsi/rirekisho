@@ -16,8 +16,8 @@
   <title>CV de Sylvain Corsini</title>
 </svelte:head>
 
-<section class="container mx-auto sm:px-6 lg:px-8">
-  <div class="bg-gray-100 my-12 px-20 py-16 rounded-3xl shadow-2xl print:bg-white print:my-0 print:p-4 print:shadow-none">
+<section class="container mx-auto lg:px-8">
+  <div class="bg-gray-100 px-2 py-4 sm:my-12 sm:px-20 sm:py-16 sm:rounded-3xl sm:shadow-2xl print:bg-white print:my-0 print:p-4 print:shadow-none">
     <Header />
     <div class="mt-16 print:mt-8">
       <Parcours />

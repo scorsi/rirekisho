@@ -16,15 +16,15 @@
   });
 </script>
 
-<section class="flex items-center gap-4">
-  <img src="{base}/img.png" class="rounded-full h-64 shadow-2xl print:shadow-none print:h-16" />
-  <ul class="divide-y-2 divide-gray-300">
-    <li class="py-2 font-light text-shadow-lg print:text-shadow-none">
-      <h1 class="text-7xl print:text-xl">Sylvain Corsini</h1>
-      <p class="text-5xl text-gray-600 print:text-lg">Développeur Cloud & Fullstack</p>
+<section class="flex flex-col text-center sm:text-left sm:flex-row items-center gap-4">
+  <img src="{base}/img.png" class="rounded-full h-40 sm:h-64 shadow-2xl print:shadow-none print:h-16" />
+  <ul class="divide-y sm:divide-y-2 divide-gray-300">
+    <li class="py-0.5 sm:py-2 font-light text-shadow-lg print:text-shadow-none">
+      <h1 class="text-4xl sm:text-7xl print:text-xl">Sylvain Corsini</h1>
+      <p class="text-xl sm:text-5xl text-gray-600 print:text-lg">Développeur Cloud&nbsp;&&nbsp;Fullstack</p>
     </li>
-    <li class="py-2 print:hidden">
-      <ul class="text-gray-600">
+    <li class="py-0.5 sm:py-2 print:hidden">
+      <ul class="text-gray-600 text-left">
         <li>
           <Fa icon={faAt} class="inline" />
           <a href="mailto:contact@example.com" target="_blank" class="text-blue-400 ml-1">
@@ -46,7 +46,7 @@
       </ul>
     </li>
   </ul>
-  <ul class="ml-auto place-self-start rounded-lg bg-blue-600 text-white p-3 print:hidden">
+  <ul class="sm:ml-auto sm:place-self-start rounded-lg text-blue-600 border-blue-600 border sm:border-none sm:bg-blue-600 sm:text-white p-3 print:hidden">
     <li class="flex items-center p-1 rounded hover:bg-blue-400">
       <i class="devicon-github-plain text-2xl"></i>
       <a href="https://github.com/scorsi" target="_blank" class="ml-2">scorsi</a>
