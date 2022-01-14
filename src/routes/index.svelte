@@ -19,10 +19,10 @@
 <section class="container mx-auto lg:px-8">
   <div class="bg-gray-100 px-2 py-4 sm:my-12 sm:px-20 sm:py-16 sm:rounded-3xl sm:shadow-2xl print:bg-white print:my-0 print:p-4 print:shadow-none">
     <Header />
-    <div class="mt-16 print:mt-8">
+    <div class="mt-8 md:mt-16 print:mt-8">
       <Parcours />
     </div>
-    <div class="grid grid-cols-2 gap-8 mt-8 mb-16 print:mb-2 print:gap-4 print:mt-4">
+    <div class="grid lg:grid-cols-2 gap-4 lg:gap-8 mt-4 md:mt-8 mb-8 md:mb-16 print:mb-2 print:gap-4 print:mt-4">
       <Competences />
       <Hobbies />
     </div>
