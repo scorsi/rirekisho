@@ -15,10 +15,10 @@
     Mes Hobbies
   </h2>
   <div slot="content">
-    <ul class="text-center divide-y">
+    <ul class="md:text-center divide-y">
       {#each hobbies as hobby, i}
         <li class="py-1 print:py-2">
-          <a class="text-lg cursor-pointer print:text-sm" on:click={toggleOpenedHobby.bind(null, i)}>
+          <a class="sm:text-lg cursor-pointer print:text-sm" on:click={toggleOpenedHobby.bind(null, i)}>
             {hobby.name}
             <Fa class="inline print:hidden" icon={openedHobby !== i ? faChevronDown : faChevronUp} />
           </a>
