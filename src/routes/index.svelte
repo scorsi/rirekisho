@@ -22,7 +22,7 @@
     <div class="mt-8 md:mt-16 print:mt-8">
       <Parcours />
     </div>
-    <div class="grid lg:grid-cols-2 gap-4 lg:gap-8 mt-4 md:mt-8 mb-8 md:mb-16 print:mb-2 print:gap-4 print:mt-4">
+    <div class="grid lg:grid-cols-2 print:grid-cols-2 gap-4 lg:gap-8 mt-4 md:mt-8 mb-8 md:mb-16 print:mb-2 print:gap-4 print:mt-4">
       <Competences />
       <Hobbies />
     </div>
