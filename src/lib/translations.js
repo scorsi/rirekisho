@@ -4,10 +4,17 @@ import i18n from "sveltekit-i18n";
 export const config = ({
   loaders: [
     {
-      locale: "fr",
-      key: "header",
+      locale: "en",
+      key: "common",
       loader: async () => (
-        await import("./lang/fr/header.json")
+        await import("./lang/en/common.json")
+      ).default
+    },
+    {
+      locale: "fr",
+      key: "common",
+      loader: async () => (
+        await import("./lang/fr/common.json")
       ).default
     },
     {
@@ -19,13 +26,6 @@ export const config = ({
     },
     {
       locale: "fr",
-      key: "data.competences",
-      loader: async () => (
-        await import("./lang/fr/data/competences.json")
-      ).default
-    },
-    {
-      locale: "fr",
       key: "hobbies",
       loader: async () => (
         await import("./lang/fr/hobbies.json")
@@ -33,23 +33,9 @@ export const config = ({
     },
     {
       locale: "fr",
-      key: "data.hobbies",
+      key: "career",
       loader: async () => (
-        await import("./lang/fr/data/hobbies.json")
-      ).default
-    },
-    {
-      locale: "fr",
-      key: "parcours",
-      loader: async () => (
-        await import("./lang/fr/parcours.json")
-      ).default
-    },
-    {
-      locale: "fr",
-      key: "data.parcours",
-      loader: async () => (
-        await import("./lang/fr/data/parcours.json")
+        await import("./lang/fr/career.json")
       ).default
     }
   ]

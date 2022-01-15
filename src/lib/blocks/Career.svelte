@@ -1,6 +1,6 @@
 <script>
   import BlockContainer from "$lib/components/BlockContainer.svelte";
-  import parcours from "$lib/data/parcours.json";
+  import career from "$lib/data/career.json";
   import { faCheck, faChevronDown, faChevronRight, faChevronUp } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa";
   import { t } from "$lib/translations.js";
@@ -18,13 +18,13 @@
 
 <BlockContainer>
   <h2 slot="title">
-    {$t('parcours.title')}
+    {$t('common.career_title')}
   </h2>
   <ul class="-mb-8 print:-mb-4" slot="content">
-    {#each parcours as e, i}
+    {#each career as e, i}
       <li>
         <div class="relative pb-8 print:pb-4">
-          {#if i + 1 !== parcours.length}
+          {#if i + 1 !== career.length}
             <span class="absolute top-4 left-4 -ml-px h-full w-px bg-gray-200 print:left-3" aria-hidden="true"></span>
           {/if}
           <div class="relative flex space-x-3 print:space-x-2">
@@ -38,7 +38,7 @@
               <div class="md:flex justify-between md:space-x-4">
                 <div class="-mt-1 print:-mt-2">
                   <h3 class="sm:text-lg md:text-xl text-gray-800 print:text-md print:inline">
-                    {e.title}
+                    {$t(`career.${i}.title`)}
                   </h3>
                   {#if e.company}
                     <h4 class="print:text-xs print:inline">
@@ -57,16 +57,14 @@
                 </div>
               </div>
               <div class="w-full text-sm text-gray-500 print:text-xs print:-mt-2">
-                <p class="mt-2">{@html e.shortDescription}</p>
+                <p class="mt-2">{$t(`career.${i}.shortDescription`)}</p>
                 <div class="print:hidden">
-                  {#if e.longDescription}
-                    <hr class="mt-2" />
-                    <p class:hidden={openedExp !== i} class="mt-2">{@html e.longDescription}</p>
-                    <a class="mt-4 block cursor-pointer" on:click={toggleOpenedExp.bind(null, i)}>
-                      {openedExp === i ? $t('parcours.see_less'): $t('parcours.see_more')}
-                      <Fa class="inline" icon={openedExp === i ? faChevronUp : faChevronDown} />
-                    </a>
-                  {/if}
+                  <hr class="mt-2" />
+                  <p class:hidden={openedExp !== i} class="mt-2">{@html $t(`career.${i}.longDescription`)}</p>
+                  <a class="mt-4 block cursor-pointer" on:click={toggleOpenedExp.bind(null, i)}>
+                    {openedExp === i ? $t('common.see_less') : $t('common.see_more')}
+                    <Fa class="inline" icon={openedExp === i ? faChevronUp : faChevronDown} />
+                  </a>
                 </div>
               </div>
             </div>

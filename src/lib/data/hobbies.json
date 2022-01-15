@@ -1,14 +1,3 @@
-[
-  {
-    "name": "data.hobbies.boardgames.title",
-    "description": "data.hobbies.boardgames.description"
-  },
-  {
-    "name": "data.hobbies.books.title",
-    "description": "data.hobbies.books.description"
-  },
-  {
-    "name": "data.hobbies.musics.title",
-    "description": "data.hobbies.musics.description"
-  }
-]
+{
+  "numbers": 3
+}

@@ -12,6 +12,10 @@ const config = {
 
 		target: '#svelte',
 
+		prerender: {
+			entries: ['/', '/fr', '/en'],
+		},
+
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/resume' : '',
 			assets: process.env.NODE_ENV === 'production' ? 'https://scorsi.github.io/resume' : ''

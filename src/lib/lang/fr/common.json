@@ -1,5 +1,11 @@
 {
+  "title": "CV de Sylvain Corsini",
   "job_title": "Développeur Cloud & Fullstack",
   "presentation_text": "Après 4 ans chez Adfinitas, d'abord comme Développeur puis comme Lead Développeur, j'ai décidé de vivre de nouvelles expériences.<br/>Passionné, depuis tout jeune, par les nouvelles technologies et le développement, j'ai suivi mes études à Epitech.<br/>Je reste toujours à l'affût des nouveautés et je participe régulièrement à des projets open-source.<br/><strong>Je suis disponible dès le 8 avril, partout en France.</strong>",
-  "qrcode_text": "version en ligne"
+  "qrcode_text": "version en ligne",
+  "career_title": "Mon Parcours",
+  "competences_title": "Mes Compétences",
+  "hobbies_title": "Mes Loisirs et Intérêts",
+  "see_more": "Voir plus",
+  "see_less": "Voir moins"
 }

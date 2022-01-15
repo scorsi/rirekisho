@@ -13,6 +13,7 @@
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
 		"@sveltejs/adapter-static": "^1.0.0-next.26",
 		"@sveltejs/kit": "next",
+		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/typography": "^0.5.0",
 		"autoprefixer": "^10.4.2",
 		"eslint": "^7.32.0",
@@ -21,14 +22,12 @@
 		"postcss": "^8.4.5",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
+		"qrcode-svg": "^1.1.0",
 		"svelte": "^3.44.0",
 		"svelte-fa": "^2.4.0",
 		"svelte-preprocess": "^4.10.1",
 		"sveltekit-i18n": "^1.5.0",
 		"tailwindcss": "^3.0.12"
 	},
-	"type": "module",
-	"dependencies": {
-		"qrcode-svg": "^1.1.0"
-	}
+	"type": "module"
 }

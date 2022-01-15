@@ -1,0 +1,32 @@
+{
+  "0": {
+    "title": "Lead Développeur / Lead Technique",
+    "shortDescription": "Manager du pôle dév/technique, accompagnement des équipes marketing sur leurs projets clients ainsi que développer des outils internes et des sites de campagnes pour nos clients.",
+    "longDescription": "J'ai d'abord rejoints l'entreprise comme développeur en stage puis alternance et en sortie d'école j'ai été nommé Lead Développeur.<br/>Au départ, mon rôle était de développer des outils internes (ex : Prometer) et d'aider légèrement sur quelques projets clients.<br/>J'ai rapidement monté en responsabilité, j'ai par la suite managé le pôle dév et aider à son développement en recrutant des profils en stage et alternance. J'ai également épaulé les équipes marketings et créatives sur la réalisation et la reflexion autours des projets clients : principalement en aidant à trouver la bonne solution technique pour répondre au mieux au besoin client. J'étais souvent en relation avec les clients, je devais les aider à comprendre nos reflexions techniques, mais aussi les aider sur leurs problématiques métiers.<br/>J'ai eu la chance de travailler avec des clients tel que La SPA, Médecin du Monde, L'Institut du Cerveau, Ordre de Malte, L'Institut Curie.... et bien d'autres encore."
+  },
+  "1": {
+    "title": "Obtention de mon diplôme Architecte Développeur Logiciel",
+    "shortDescription": "Epitech est une école d'ingénieur en informatique, spécialisée dans les domaines du développement logiciel et de l'informatique industrielle.",
+    "longDescription": "Durant mes études, j'ai eu le temps de bien maitriser les langages C et C++, mais dès que l'occasion se présentait, je fonçais sur des technos moderne comme NodeJS ou Go. Grâce à l'apprentissage d'Epitech, j'ai appris à être autonomme et à m'adapter à des environnements différents. J'ai également appris à travailler en équipe et à être responsable."
+  },
+  "2": {
+    "title": "Ingénieur Data",
+    "shortDescription": "Aide à la mise en place du système de recommendation de produits personnalisées.",
+    "longDescription": "Le système était presque déployé et finalisé, je me suis charge de l'intégralité des flux temps-réels pour la mise à jour du système de recommendation en Java et sur GCP (Dataflow)."
+  },
+  "3": {
+    "title": "Freelance développeur web fullstack",
+    "shortDescription": "Pendant plus d'un an, j'ai travaillé pour plusieurs clients sur plusieurs projets.",
+    "longDescription": "J'ai principalement développé des sites vitrines ainsi qu'un site de gestion de rendez-vous pour une agence de formation d'anglais. J'ai utilisé PHP (Laravel) et React."
+  },
+  "4": {
+    "title": "Formateur en développement web",
+    "shortDescription": "Formateur au sein d'Epitech pour des étudiants en école marketing, commerce et communication.",
+    "longDescription": "Apprentissage par le biais de cours et de projets à la programmation web : HTML, CSS, JS, SQL, PHP et Wordpress.<br/>L'objectif était de montrer les bases de la programmation web pour qu'ils comprennent comment est fait un site internet et combien ça vaut réellement."
+  },
+  "5": {
+    "title": "Développeur Fullstack",
+    "shortDescription": "Création de plugins d'intégration pour des CRM/frameworks e-commerce au système de recommendations de produits personnalisées.",
+    "longDescription": "J'ai développé des intégrations en PHP pour les frameworks : Prestashop, Magento, Drupal et Wordpress. J'ai également légèrement travaillé sur le système de recommendation de produits personnalisés de Nuukik en Java."
+  }
+}
