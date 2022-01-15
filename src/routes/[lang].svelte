@@ -8,6 +8,7 @@
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
   import { darkModeStore, toggleDarkMode } from "$lib/darkmode.js";
+  import { base } from "$app/paths";
 
   let selectedLang = $page.params.lang;
 </script>
@@ -39,7 +40,7 @@
     </div>
     <div>
       <span class="inline text-sm font-medium text-gray-700 dark:text-white mr-2">Langue</span>
-      <select bind:value={selectedLang} on:change={() => {goto(`/${selectedLang}/`)}} id="location" name="location"
+      <select bind:value={selectedLang} on:change={() => {goto(`${base}/${selectedLang}/`)}} id="location" name="location"
               class="mt-1 inline pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
         <option selected={$page.params.lang === "fr"} value="fr">Français</option>
         <option selected={$page.params.lang === "en"} value="en">English</option>
