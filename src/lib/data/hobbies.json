@@ -1,14 +1,14 @@
 [
   {
-    "name": "Jeux de sociétés",
-    "description": "Je suis un grand fan de jeux de sociétés grâce à l'interaction que cela créé avec les gens. Je possède plus de 50 jeux chez moi."
+    "name": "data.hobbies.boardgames.title",
+    "description": "data.hobbies.boardgames.description"
   },
   {
-    "name": "Littérature: romans et mangas",
-    "description": "J'adore lire, j'ai découvert les romans très jeune et depuis je suis très curieux de découvrir de nouveaux livres. Mes thèmes de prédilections sont : le fantastique et la science fiction, ce qui me permet de m'évader de la vie réelle. Je suis également un grand fan de la culture des mangas et des animés."
+    "name": "data.hobbies.books.title",
+    "description": "data.hobbies.books.description"
   },
   {
-    "name": "Musique",
-    "description": "Si vous ne me voyez pas avec des écouteurs dans les oreilles c'est que je parle à quelqu'un. Je suis un grand amateur de musique en tout genre. Je suis un grand fan de Orelsan, Adèle ou encore Ed Sheeran. J'essaie d'apprendre le piano à mes heures perdues."
+    "name": "data.hobbies.musics.title",
+    "description": "data.hobbies.musics.description"
   }
 ]

@@ -3,6 +3,7 @@
   import hobbies from "$lib/data/hobbies.json";
   import Fa from "svelte-fa";
   import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+  import { t } from "$lib/translations.js";
 
   let openedHobby = null;
   let toggleOpenedHobby = (hobby) => {
@@ -12,17 +13,17 @@
 
 <BlockContainer>
   <h2 slot="title">
-    Mes Hobbies
+    {$t('hobbies.title')}
   </h2>
   <div slot="content">
     <ul class="md:text-center divide-y">
       {#each hobbies as hobby, i}
         <li class="py-1 print:py-2">
           <a class="sm:text-lg cursor-pointer print:text-sm" on:click={toggleOpenedHobby.bind(null, i)}>
-            {hobby.name}
+            {$t(hobby.name)}
             <Fa class="inline print:hidden" icon={openedHobby !== i ? faChevronDown : faChevronUp} />
           </a>
-          <p class:hidden={openedHobby !== i} class="text-gray-600 print:hidden">{hobby.description}</p>
+          <p class:hidden={openedHobby !== i} class="text-gray-600 print:hidden">{$t(hobby.description)}</p>
         </li>
       {/each}
     </ul>

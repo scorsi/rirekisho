@@ -3,6 +3,7 @@
   import Fa from "svelte-fa/src/fa.svelte";
   import QRCode from "qrcode-svg";
   import { faAt, faCompass, faPhone, faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
+  import { t } from "$lib/translations";
 
   const qrcode = new QRCode({
     content: "https://scorsi.github.io/resume/",
@@ -16,14 +17,15 @@
   });
 </script>
 
-<section class="mx-6 sm:mx-0 print:mx-0 lg:flex print:flex text-center lg:text-left print:text-left items-center md:gap-4 print:gap-4">
+<section
+  class="mx-6 sm:mx-0 print:mx-0 lg:flex print:flex text-center lg:text-left print:text-left items-center md:gap-4 print:gap-4">
   <img src="{base}/img.png"
        class="mx-auto lg:mx-0 print:mx-0 z-[10] rounded-full h-40 sm:h-48 lg:h-64 shadow-2xl print:shadow-none print:h-16" />
   <ul
     class="divide-y lg:divide-y-2 divide-gray-400 bg-gray-200 print:bg-inherit lg:bg-inherit lg:rounded-none p-4 sm:px-10 pt-12 rounded-t-xl md:rounded-t-2xl -mt-10 lg:m-0 lg:p-0 print:m-0 print:p-0 z-0">
     <li class="py-1 lg:py-2 print:py-2 font-light text-shadow-lg print:text-shadow-none">
       <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl print:text-xl">Sylvain Corsini</h1>
-      <p class="text-xl sm:text-2xl md:text-3xl xl:text-5xl text-gray-600 print:text-lg">Développeur Cloud&nbsp;&&nbsp;Fullstack</p>
+      <p class="text-xl sm:text-2xl md:text-3xl xl:text-5xl text-gray-600 print:text-lg">{$t('header.job_title')}</p>
     </li>
     <li class="py-1 lg:py-2 print:py-2 print:hidden">
       <ul class="text-gray-600 text-left">
@@ -80,7 +82,7 @@
     </li>
   </ul>
   <div class="hidden rounded px-1 pb-1 text-center flex flex-col bg-blue-500 text-white print:block">
-    <span class="text-xs">version en ligne</span>
+    <span class="text-xs">{$t('header.qrcode_text')}</span>
     <div class="px-1 py-0.5">
       {@html qrcode.svg()}
     </div>
@@ -88,23 +90,11 @@
 </section>
 <hr class="hidden mt-2 print:block" />
 <div class="flex mt-8 sm:mt-16 print:mt-6 mx-10 sm:mx-0 print:mx-0">
-  <div class="text-justify sm:text-center text-md text-gray-600 relative mx-auto print:text-xs print:text-left print:ml-20">
+  <div
+    class="text-justify sm:text-center text-md text-gray-600 relative mx-auto print:text-xs print:text-left print:ml-20">
     <span class="absolute -left-3 -top-3 text-blue-200 text-2xl z-0 print:text-xl"><Fa icon={faQuoteLeft} /></span>
-    <span class="absolute -right-3 -bottom-3 text-blue-200 text-2xl z-0 hidden sm:block print:hidden"><Fa icon={faQuoteRight} /></span>
-    <p class="relative z-1">
-      Après 4 ans chez Adfinitas, d'abord comme Développeur puis comme Lead Développeur,
-      j'ai décidé de vivre de nouvelles expériences.
-    </p>
-    <p class="relative z-1">
-      Passionné, depuis tout jeune, par les nouvelles technologies et le développement,
-      j'ai suivi mes études à Epitech.
-    </p>
-    <p class="relative z-1">
-      Je reste toujours à l'affût des nouveautés et je participe régulièrement à
-      des projets open-source.
-    </p>
-    <p class="relative z-1 font-bold">
-      Je suis disponible dès le 8 avril, partout en France.
-    </p>
+    <span class="absolute -right-3 -bottom-3 text-blue-200 text-2xl z-0 hidden sm:block print:hidden"><Fa
+      icon={faQuoteRight} /></span>
+    <p class="relative z-1">{@html $t('header.presentation_text')}</p>
   </div>
 </div>

@@ -3,6 +3,7 @@
   import parcours from "$lib/data/parcours.json";
   import { faCheck, faChevronDown, faChevronRight, faChevronUp } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa";
+  import { t } from "$lib/translations.js";
 
   let openedExp = null;
 
@@ -17,7 +18,7 @@
 
 <BlockContainer>
   <h2 slot="title">
-    Mon Parcours
+    {$t('parcours.title')}
   </h2>
   <ul class="-mb-8 print:-mb-4" slot="content">
     {#each parcours as e, i}
@@ -62,7 +63,7 @@
                     <hr class="mt-2" />
                     <p class:hidden={openedExp !== i} class="mt-2">{@html e.longDescription}</p>
                     <a class="mt-4 block cursor-pointer" on:click={toggleOpenedExp.bind(null, i)}>
-                      En voir {openedExp === i ? "moins" : "plus"}
+                      {openedExp === i ? $t('parcours.see_less'): $t('parcours.see_more')}
                       <Fa class="inline" icon={openedExp === i ? faChevronUp : faChevronDown} />
                     </a>
                   {/if}

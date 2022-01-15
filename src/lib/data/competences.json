@@ -1,6 +1,6 @@
 [
   {
-    "name": "Langages",
+    "name": "data.competences.languages",
     "values": [
       {
         "name": "NodeJS",
@@ -35,7 +35,7 @@
     ]
   },
   {
-    "name": "Frameworks",
+    "name": "data.competences.frameworks",
     "values": [
       {
         "name": "React",
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "name": "Cloud & DevOps",
+    "name": "data.competences.cloud_and_devops",
     "values": [
       {
         "name": "Google Cloud Platform",
