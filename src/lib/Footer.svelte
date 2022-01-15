@@ -1,4 +1,4 @@
-<section class="text-center grid grid-cols-1 gap-2 print:absolute print:bottom-0 print:w-full">
+<section class="text-center grid grid-cols-1 gap-2 print:absolute print:bottom-0 print:w-full dark:text-gray-300">
   <p class="print:text-xs">
     Créé avec
     <a href="https://kit.svelte.dev/" target="_blank" class="text-blue-400">SvelteKit</a>
@@ -8,14 +8,4 @@
   <p class="text-xs print:hidden">
     Le code du CV est accessible sur GitHub : <a href="https://github.com/scorsi/resume" class="text-blue-400">github.com/scorsi/resume</a>.
   </p>
-
-  <a class="text-center text-xs text-blue-400 print:hidden" href="javascript:window.print()">
-    Ce CV est imprimable/téléchargeable en PDF.
-  </a>
-
-  <!--
-  <div class="hidden text-xs print:block">
-    Ce CV est visionnable en HTML / CSS (préférable) : <a href="https://scorsi.github.io/resume" target="_blank" class="text-blue-400">scorsi.github.io/resume</a>.
-  </div>
-  -->
 </section>

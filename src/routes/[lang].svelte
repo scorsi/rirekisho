@@ -23,8 +23,11 @@
 </svelte:head>
 
 <section class="container mx-auto lg:px-8 md:mb-10 lg:mb-14">
-  <div class="sm:my-8 flex flex-row-reverse gap-8 items-center mx-8 print:hidden">
+  <div class="sm:my-8 flex gap-8 items-center mx-8 print:hidden">
     <div>
+      <button on:click={() => window.print()} class="bg-blue-600 text-white text-sm p-4 rounded-lg">{$t('common.print_text')}</button>
+    </div>
+    <div class="ml-auto">
       <span class="inline text-sm font-medium text-gray-700 dark:text-white mr-2">{$t('common.dark_mode')}</span>
       <button on:click|preventDefault={() => toggleDarkMode()} class:bg-blue-600={$darkModeStore}
               class="bg-gray-200 align-middle relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -45,7 +48,7 @@
   </div>
 
   <div
-    class="bg-gray-100 px-2 py-4 sm:my-8 sm:px-20 sm:py-16 sm:rounded-3xl sm:shadow-2xl print:bg-white print:my-0 print:p-4 print:shadow-none">
+    class="bg-gray-100 px-2 py-4 sm:my-8 sm:px-20 sm:py-16 sm:rounded-3xl sm:shadow-2xl dark:bg-black print:bg-white print:my-0 print:p-4 print:shadow-none">
     <Header />
     <div class="mt-8 md:mt-16 print:mt-8">
       <Parcours />

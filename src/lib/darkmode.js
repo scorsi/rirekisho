@@ -7,7 +7,12 @@ const isDarkModeEnabled = () =>
     (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
   );
 
-const darkModeStore = writable(isDarkModeEnabled());
+
+export const darkModeStore = writable(isDarkModeEnabled());
+export const setDarkMode = darkModeStore.set;
+export const updateDarkMode = darkModeStore.update;
+export const toggleDarkMode = () => updateDarkMode(isDarkModeEnabled => !isDarkModeEnabled);
+
 
 darkModeStore.subscribe(isDarkModeEnabled => {
   if (!browser) return;
@@ -20,10 +25,3 @@ darkModeStore.subscribe(isDarkModeEnabled => {
     localStorage.theme = "light";
   }
 });
-
-const toggleDarkMode = () => darkModeStore.update(isDarkModeEnabled => !isDarkModeEnabled);
-
-export {
-  darkModeStore,
-  toggleDarkMode
-};
