@@ -7,6 +7,7 @@
   import { t } from "$lib/translations";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
+  import { darkModeStore, toggleDarkMode } from "$lib/darkmode.js";
 
   let selectedLang = $page.params.lang;
 </script>
@@ -21,10 +22,20 @@
   <title>{$t('common.title')}</title>
 </svelte:head>
 
-<section class="container mx-auto lg:px-8">
-  <div class="sm:my-8 flex flex-row-reverse gap-4 items-center px-4 print:hidden">
+<section class="container mx-auto lg:px-8 md:mb-10 lg:mb-14">
+  <div class="sm:my-8 flex flex-row-reverse gap-8 items-center mx-8 print:hidden">
     <div>
-      <span class="inline text-sm font-medium text-gray-700">Langue</span>
+      <span class="inline text-sm font-medium text-gray-700 dark:text-white mr-2">{$t('common.dark_mode')}</span>
+      <button on:click|preventDefault={() => toggleDarkMode()} class:bg-blue-600={$darkModeStore}
+              class="bg-gray-200 align-middle relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              type="button" role="switch" aria-checked="false">
+        <span class="sr-only">Use setting</span>
+        <span aria-hidden="true" class:translate-x-5={$darkModeStore}
+              class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+      </button>
+    </div>
+    <div>
+      <span class="inline text-sm font-medium text-gray-700 dark:text-white mr-2">Langue</span>
       <select bind:value={selectedLang} on:change={() => {goto(`/${selectedLang}/`)}} id="location" name="location"
               class="mt-1 inline pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
         <option selected={$page.params.lang === "fr"} value="fr">Français</option>
