@@ -1,7 +1,8 @@
 import i18n from "sveltekit-i18n";
 
-/** @type {import('sveltekit-i18n').Config} */
+/** @type {import("sveltekit-i18n").Config} */
 export const config = ({
+  fallbackLocale: "fr",
   loaders: [
     {
       locale: "en",
