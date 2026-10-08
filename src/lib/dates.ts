@@ -49,6 +49,13 @@ export function formatPeriod(start: Month | undefined, end: Month | undefined, l
   return { range, duration };
 }
 
+// "2018" or "2018–20": the short form a line of successive roles needs.
+export function formatYears(start: Month, end: Month | undefined): string {
+  const from = start.slice(0, 4);
+  const to = (end ?? currentMonth()).slice(0, 4);
+  return from === to ? from : `${from}–${to.slice(2)}`;
+}
+
 // Most recent first; ongoing entries (no end) before finished ones that started at the same time.
 export function byRecency<T extends { data: { start?: Month; end?: Month } }>(a: T, b: T): number {
   const start = (b.data.start ?? "9999").localeCompare(a.data.start ?? "9999");

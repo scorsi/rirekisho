@@ -8,12 +8,12 @@ links = [
 ]
 
 [me.headline]
-fr = "Senior AI Cloud Engineer"
-en = "Senior AI Cloud Engineer"
+fr = "AI Cloud Engineer"
+en = "AI Cloud Engineer"
 
 [me.location]
-fr = "Bordeaux, France"
-en = "Bordeaux, France"
+fr = "Région de Tokyo, Japon"
+en = "Greater Tokyo Area, Japan"
 
 # TODO: à relire et compléter (brouillon écrit à partir de l'ancien CV).
 [me.summary]

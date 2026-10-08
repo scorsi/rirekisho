@@ -9,6 +9,9 @@ interface Props {
   org?: string;
   url?: string;
   location?: string;
+  contract?: string;
+  progression?: string;
+  compact?: boolean;
   start?: string;
   end?: string;
   summary?: string;
@@ -23,6 +26,9 @@ const {
   org,
   url,
   location,
+  contract,
+  progression,
+  compact,
   start,
   end,
   summary,
@@ -34,7 +40,7 @@ const t = useTranslations(locale);
 const { range, duration } = formatPeriod(start, end, locale);
 ---
 
-<article class:list={{ draft }}>
+<article class:list={{ draft, compact }}>
   <p class="when">
     <span>{range || t("date.unknown")}</span>
     {duration && <span class="muted">{duration}</span>}
@@ -44,13 +50,30 @@ const { range, duration } = formatPeriod(start, end, locale);
       {title}
       {draft && <span class="badge">{t("draft")}</span>}
     </h3>
-    {(org || location) && (
+    {(org || location || contract) && (
       <p class="org">
-        {org && (url ? <a href={url}>{org}</a> : <span>{org}</span>)}
-        {org && location && <span aria-hidden="true"> · </span>}
-        {location && <span class="muted">{location}</span>}
+        {[
+          org &&
+            (url ? (
+              <a class="company" href={url}>
+                {org}
+              </a>
+            ) : (
+              <span class="company">{org}</span>
+            )),
+          location && <span class="muted">{location}</span>,
+          contract && <span class="muted">{contract}</span>,
+        ]
+          .filter(Boolean)
+          .map((part, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true"> · </span>}
+              {part}
+            </>
+          ))}
       </p>
     )}
+    {progression && <p class="progression">{progression}</p>}
     {summary && <p class="summary">{summary}</p>}
     {highlights.length > 0 && (
       <ul class="highlights">
@@ -113,15 +136,32 @@ const { range, duration } = formatPeriod(start, end, locale);
     color: var(--muted);
   }
 
-  .org a,
-  .org > span:first-child {
+  .company {
     color: var(--ink);
     font-weight: 500;
+  }
+
+  .progression {
+    margin-top: 4px;
+    font: 12px/1.5 var(--mono);
+    color: var(--muted);
   }
 
   .summary {
     margin-top: 10px;
     max-width: 68ch;
+  }
+
+  .compact {
+    padding: 16px 0;
+  }
+
+  .compact h3 {
+    font-size: 15px;
+  }
+
+  .compact .summary {
+    margin-top: 4px;
   }
 
   .highlights {
@@ -214,6 +254,43 @@ const { range, duration } = formatPeriod(start, end, locale);
     .tags li {
       font-size: 7pt;
       padding: 0 5px;
+    }
+
+    .progression {
+      margin-top: 1px;
+      font-size: 7.4pt;
+    }
+
+    /* One line: dates, then title · company · location. The detail stays in the online version. */
+    .compact {
+      padding: 3px 0;
+    }
+
+    .compact .when .muted,
+    .compact .summary,
+    .compact .highlights,
+    .compact .tags {
+      display: none;
+    }
+
+    .compact .what {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .compact h3 {
+      font-size: 9.2pt;
+      font-weight: 500;
+    }
+
+    .compact .org {
+      margin-top: 0;
+    }
+
+    .compact .org::before {
+      content: "·";
+      margin: 0 0.35em;
     }
   }
 </style>

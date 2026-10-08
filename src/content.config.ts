@@ -19,6 +19,9 @@ const dated = z
 
 const link = z.object({ label: z.string(), url: z.url() });
 
+// Shown next to the company rather than in the title. No value: a regular employment contract.
+const contract = z.enum(["freelance", "internship", "apprenticeship"]);
+
 const profile = defineCollection({
   loader: file("src/data/profile.toml"),
   schema: z.object({
@@ -39,6 +42,14 @@ const experience = defineCollection({
       url: z.url().optional(),
       location: localized.optional(),
       title: localized,
+      contract: contract.optional(),
+      // Successive roles at the same company, folded into one entry: shown as a single line of
+      // progression under the title (the entry's own title and dates cover the whole span).
+      roles: z
+        .array(z.object({ title: localized, start: month, end: month.optional() }))
+        .default([]),
+      // An older position kept for continuity: a short summary on the web, a single line in the PDF.
+      compact: z.boolean().default(false),
       summary: localized.optional(),
       highlights: z.array(localized).default([]),
       tags: z.array(z.string()).default([]),
@@ -74,7 +85,11 @@ const languages = defineCollection({
 
 const interests = defineCollection({
   loader: file("src/data/interests.toml"),
-  schema: ordered.extend({ title: localized, description: localized }),
+  schema: ordered.extend({
+    title: localized,
+    description: localized.optional(),
+    link: link.optional(),
+  }),
 });
 
 export const collections = { profile, experience, education, skills, languages, interests };

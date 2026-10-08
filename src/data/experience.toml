@@ -1,90 +1,128 @@
 # One table per position; the key is only an identifier. Sorted by `start` on the page.
 # Dates are "YYYY-MM"; no `end` means ongoing. `draft = true` keeps an entry out of the build.
+# Titles are the ones on the employment contract; `contract` (freelance, internship,
+# apprenticeship) is shown next to the company. `compact = true`: one line in the PDF.
 
-# TODO: dates, intitulé exact et réalisations.
 [betclic]
-draft = true
 company = "Betclic Group"
-url = "https://www.betclicgroup.com/"
+url = "https://betclicgroup.com/"
 location = { fr = "Bordeaux, France", en = "Bordeaux, France" }
-title = { fr = "Senior AI Cloud Engineer", en = "Senior AI Cloud Engineer" }
-summary.fr = "Infrastructure GenAI du groupe : passerelle LLM centralisée (LiteLLM) devant Azure AI Foundry, AWS Bedrock et OpenAI."
-summary.en = "The group's GenAI infrastructure: a centralised LLM gateway (LiteLLM) in front of Azure AI Foundry, AWS Bedrock and OpenAI."
+start = "2025-08"
+title = { fr = "Ingénieur Cloud — équipe GenAI", en = "Cloud Engineer — GenAI Team" }
+summary.fr = "Ingénieur cloud et plateforme dans l'équipe IA générative : l'infrastructure derrière les produits LLM internes de Betclic."
+summary.en = "Cloud and platform engineer in the Generative AI team, building and running the infrastructure behind Betclic's internal LLM products."
 highlights = [
-  { fr = "Routage multi-région entre fournisseurs.", en = "Multi-region routing across providers." },
-  { fr = "Pipelines d'évaluation des modèles.", en = "Model evaluation pipelines." },
-  { fr = "Architectures d'agents avec LangGraph.", en = "Agent architectures with LangGraph." },
+  { fr = "Exploitation de la passerelle LLM centralisée (LiteLLM) devant Azure AI Foundry, AWS Bedrock et OpenAI : plusieurs millions de tokens par heure sur plusieurs régions, avec quotas par équipe, limitation de débit et suivi des coûts.", en = "Run the centralised LLM gateway (LiteLLM) in front of Azure AI Foundry, AWS Bedrock and OpenAI Platform: several million tokens per hour across regions, with per-team quotas, rate limiting and cost tracking." },
+  { fr = "Déploiement, passage à l'échelle, observabilité et maîtrise des coûts des charges IA de l'équipe sur AWS et Azure.", en = "Deployment, scaling, observability and cost-efficiency of the team's AI workloads on AWS and Azure." },
 ]
-tags = ["LiteLLM", "Azure AI Foundry", "AWS Bedrock", "OpenAI", "LangGraph"]
+tags = ["LiteLLM", "Azure AI Foundry", "AWS Bedrock", "OpenAI", "AWS", "Azure"]
 
-# TODO: dates, intitulé exact et réalisations.
 [asobo]
-draft = true
 company = "Asobo Studio"
 url = "https://www.asobostudio.com/"
 location = { fr = "Bordeaux, France", en = "Bordeaux, France" }
-title = { fr = "Ingénieur Cloud / DevOps", en = "Cloud / DevOps Engineer" }
+start = "2023-09"
+end = "2025-08"
+title = { fr = "Ingénieur Cloud — équipe Online", en = "Cloud Engineer — Online Team" }
+summary.fr = "Conception et exploitation de l'infrastructure cloud des services en ligne de Microsoft Flight Simulator 2024."
+summary.en = "Designed and ran the cloud infrastructure behind Microsoft Flight Simulator 2024's online services."
 highlights = [
-  { fr = "Kubernetes en production sur AKS, astreintes.", en = "Kubernetes in production on AKS, on-call." },
+  { fr = "Couche plateforme interne (framework Helm, bibliothèque CDKTF en Python, modèles de CI/CD) pour que les équipes applicatives déploient sur Kubernetes avec un minimum d'effort.", en = "Built the internal platform layer (a Helm framework, a Python CDKTF library and CI/CD templates) that let application teams ship to Kubernetes with minimal effort." },
+  { fr = "Clusters Kubernetes adaptés aux pics de trafic d'un jeu : autoscaling piloté par les événements, déploiements sans interruption.", en = "Tuned the Kubernetes clusters for spiky game traffic with event-driven autoscaling and zero-downtime deployments." },
+  { fr = "Infrastructure ML des équipes data et monde : clusters GPU et traitements ML derrière les données du monde du jeu.", en = "Built and ran the ML infrastructure for the data and world teams: GPU clusters and the ML workloads behind the game's world data." },
+  { fr = "Astreintes, gestion d'incidents et post-mortems, du lancement au service en continu qui a suivi.", en = "On-call, incident response and post-mortems through the day-one launch and the live service that followed." },
 ]
-tags = ["Kubernetes", "AKS", "Azure"]
+tags = ["Kubernetes", "Helm", "CDKTF", "Python", "PowerShell"]
+
+[freelance-2023]
+company = "ENACO, Whatwapp"
+location = { fr = "Roubaix, Milan", en = "Roubaix, Milan" }
+start = "2023-03"
+end = "2023-09"
+title = { fr = "Lead technique, développeur backend", en = "Technical Lead, Backend Developer" }
+contract = "freelance"
+highlights = [
+  { fr = "ENACO, école de commerce en ligne : architecture et développement de la nouvelle plateforme e-learning, API Node.js sur GCP (Cloud Run, MongoDB Atlas, Terraform), charges passées du serverless à GKE pour la tenue en charge et les coûts.", en = "ENACO, an online business school: led the architecture and build of the new e-learning platform, Node.js APIs on GCP (Cloud Run, MongoDB Atlas, Terraform), workloads moved from serverless to GKE for scalability and cost." },
+  { fr = "Whatwapp, jeux mobiles : classement temps réel optimisé et système de matchmaking.", en = "Whatwapp, mobile games: an optimised real-time leaderboard and a matchmaking system." },
+]
+tags = ["Node.js", "TypeScript", "GCP", "Terraform", "GKE"]
+
+[virtual-regatta]
+company = "Virtual Regatta"
+url = "https://www.virtualregatta.com/"
+location = { fr = "Villeneuve-d'Ascq, France", en = "Villeneuve-d'Ascq, France" }
+start = "2022-04"
+end = "2023-05"
+title = { fr = "Lead développeur backend", en = "Lead Backend Developer" }
+summary.fr = "Direction de l'équipe backend des serveurs du jeu et des services en ligne : courses en temps réel jusqu'à un million de joueurs simultanés."
+summary.en = "Led the backend team for the game's core servers and live services: real-time races with up to a million concurrent players."
+highlights = [
+  { fr = "Migration complète de GameSparks vers une stack AWS sur mesure (Lambda, Step Functions, API Gateway, DynamoDB), décrite en CDK avec des environnements de dev et de prod identiques.", en = "Led the full migration off GameSparks to a custom AWS stack (Lambda, Step Functions, API Gateway, DynamoDB), defined as CDK with mirrored dev and prod environments." },
+  { fr = "Moteur de jeu asynchrone réécrit de Node.js en Go : traitement ramené d'environ 5 minutes à 10 secondes, pour un coût d'exploitation plus bas.", en = "Rewrote the asynchronous game engine from Node.js to Go, cutting processing time from about 5 minutes to 10 seconds and lowering operating cost." },
+  { fr = "Responsable de la fiabilité de bout en bout : astreintes, gestion d'incidents et post-mortems pendant les grands événements.", en = "Owned reliability end to end: on-call, incident response and post-mortems through major live events." },
+]
+tags = ["Go", "Node.js", "AWS", "CDK", "DynamoDB"]
 
 [adfinitas]
 company = "Adfinitas"
-url = "https://adfinitas.fr/"
+url = "https://www.adfinitas.fr/"
 location = { fr = "La Madeleine, France", en = "La Madeleine, France" }
 start = "2018-04"
 end = "2022-04"
-title = { fr = "Lead Développeur / Lead Technique", en = "Lead Developer / Tech Lead" }
-summary.fr = "Arrivé en stage puis en alternance, nommé Lead Développeur en sortie d'école : management du pôle technique, outils internes et sites de campagne pour des associations (La SPA, Médecins du Monde, l'Institut du Cerveau, l'Ordre de Malte, l'Institut Curie…)."
-summary.en = "Joined as an intern then work-study student, made Lead Developer after graduating: managed the tech team, built internal tools and campaign sites for non-profits (La SPA, Médecins du Monde, Paris Brain Institute, Order of Malta, Institut Curie…)."
-highlights = [
-  { fr = "Recrutement et encadrement de stagiaires et d'alternants.", en = "Hired and mentored interns and work-study students." },
-  { fr = "Calicut : réaction en temps réel aux événements des sites et campagnes clients pour synchroniser les outils marketing (inscriptions, dons, vidéos personnalisées).", en = "Calicut: real-time reactions to events on client sites and campaigns, keeping marketing tools in sync (sign-ups, donations, personalised videos)." },
-  { fr = "Prometer : enrichissement de bases de contacts auprès de fournisseurs de données, pour une segmentation fine des campagnes.", en = "Prometer: enriching contact databases through data providers, for fine-grained campaign segmentation." },
-  { fr = "Interface technique avec les clients et les équipes marketing et créatives.", en = "Technical point of contact for clients and the marketing and creative teams." },
+title = { fr = "Lead technique", en = "Technical Lead" }
+roles = [
+  { title = { fr = "stage", en = "internship" }, start = "2018-04", end = "2018-09" },
+  { title = { fr = "alternance", en = "apprenticeship" }, start = "2018-10", end = "2020-09" },
+  { title = { fr = "lead technique", en = "technical lead" }, start = "2020-10", end = "2022-04" },
 ]
+summary.fr = "Direction de l'équipe technique et des projets internes et clients, conseil sur la conformité RGPD et la gestion des données."
+summary.en = "Led the technical team and managed internal and client projects, advising on GDPR compliance and data management."
+highlights = [
+  { fr = "Calicut : plateforme de webhooks événementielle, des milliers de requêtes par seconde, qui automatise les processus des clients (e-mails, désinscriptions).", en = "Calicut: an event-driven webhook platform handling thousands of requests per second to automate client workflows such as emails and unsubscriptions." },
+  { fr = "Data lakes et applications multi-tenant conformes au RGPD (dont Prometer, collecte de NPS et génération de leads), migrations de clients vers GCP en serverless.", en = "GDPR-compliant data lakes and multi-tenant apps (including Prometer, for NPS collection and lead generation), client migrations to GCP using serverless architectures." },
+]
+tags = ["Go", "Svelte", "GCP"]
 
 [la-redoute]
+compact = true
 company = "La Redoute"
 url = "https://www.laredoute.fr/"
 location = { fr = "Roubaix, France", en = "Roubaix, France" }
 start = "2017-11"
 end = "2018-04"
-title = { fr = "Ingénieur Data", en = "Data Engineer" }
-summary.fr = "Mise en place du système de recommandation de produits personnalisée."
-summary.en = "Rolled out the personalised product recommendation system."
-highlights = [
-  { fr = "L'ensemble des flux temps réel de mise à jour du système, en Java sur GCP (Dataflow).", en = "All the real-time pipelines updating the system, in Java on GCP (Dataflow)." },
-]
-tags = ["Java", "GCP", "Dataflow"]
+title = { fr = "Ingénieur data", en = "Data Engineer" }
+contract = "internship"
+summary.fr = "Suivi en temps réel pour les recommandations de produits, la prévision des ventes et la segmentation."
+summary.en = "Real-time tracking for product recommendations, sales prediction and user segmentation."
 
 [freelance]
+compact = true
 location = { fr = "France", en = "France" }
-start = "2016-05"
+start = "2015-11"
 end = "2017-11"
-title = { fr = "Développeur web fullstack freelance", en = "Freelance full-stack web developer" }
-summary.fr = "Sites vitrines et application de gestion de rendez-vous pour un organisme de formation en anglais."
-summary.en = "Showcase websites and an appointment-booking application for an English training company."
-tags = ["PHP", "Laravel", "React"]
+title = { fr = "Développeur web fullstack", en = "Full-stack Web Developer" }
+contract = "freelance"
+summary.fr = "En parallèle des études : sites WordPress, PrestaShop et Magento pour des petites entreprises."
+summary.en = "Alongside my studies: WordPress, PrestaShop and Magento sites for small businesses."
 
 [epitech-trainer]
+compact = true
 company = "Epitech"
 url = "https://www.epitech.eu/"
 location = { fr = "Lille, France", en = "Lille, France" }
 start = "2017-07"
-end = "2017-07"
-title = { fr = "Formateur en développement web", en = "Web development trainer" }
-summary.fr = "Initiation à la programmation web (HTML, CSS, JS, SQL, PHP, WordPress) pour des étudiants d'écoles de marketing, de commerce et de communication."
-summary.en = "Introduction to web programming (HTML, CSS, JS, SQL, PHP, WordPress) for marketing, business and communication students."
+end = "2017-08"
+title = { fr = "Formateur en informatique", en = "Computer Science Instructor" }
+summary.fr = "Développement web pour une promotion de 30 étudiants sans formation informatique."
+summary.en = "Web development for a cohort of 30+ students with no CS background."
 
 [nuukik]
+compact = true
 company = "Nuukik"
-url = "https://www.nuukik.com/"
 location = { fr = "Villeneuve-d'Ascq, France", en = "Villeneuve-d'Ascq, France" }
 start = "2016-07"
 end = "2016-12"
-title = { fr = "Développeur fullstack", en = "Full-stack developer" }
-summary.fr = "Plugins d'intégration du système de recommandation de produits pour Prestashop, Magento, Drupal et WordPress."
-summary.en = "Integration plugins for the product recommendation engine on Prestashop, Magento, Drupal and WordPress."
-tags = ["PHP", "Java"]
+title = { fr = "Ingénieur logiciel", en = "Software Engineer" }
+contract = "internship"
+summary.fr = "Plugins e-commerce intégrant un moteur de recommandation de produits."
+summary.en = "E-commerce plugins integrating a product recommendation engine."
