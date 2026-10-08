@@ -30,12 +30,15 @@ Guidance for Claude Code when working in this repo. See [README.md](README.md) f
 2. **Where the site lives is decided at build time**: `RIREKISHO_BASE` (base path, default `/`)
    and `RIREKISHO_SITE` (public URL, `astro.config.mjs`). The PDF's "online version" QR code is
    only generated when `RIREKISHO_SITE` is set.
-3. **The PDF is the web page.** `scripts/pdf.mjs` serves `dist/` locally and prints `/fr/` and
-   `/en/` with Chromium (playwright-core) to `dist/rirekisho-<lang>.pdf`. Layout changes for the
-   PDF go in `@media print` rules, never in a second template.
-4. **Chromium comes from Nix**: `$CHROMIUM_PATH`, set by the dev shell — `chromium` on Linux (CI),
-   Playwright's Chrome for Testing (`playwright-driver.browsers-chromium`) on macOS. It is a build
-   dependency of the PDF, so it stays here even if a system config also installs one.
+3. **The PDF is the web page.** `scripts/pdf.nu` (Nushell) serves `dist/` with `caddy
+file-server` and prints `/fr/` and `/en/` with Chromium's own `--print-to-pdf` to
+   `dist/rirekisho-<lang>.pdf`; no Playwright. Layout changes for the PDF go in `@media print`
+   rules, never in a second template.
+4. **Chromium comes from Nix**: `$CHROMIUM_PATH`, set by the dev shell to Chromium's headless shell
+   (`playwright-driver.components.chromium-headless-shell`, prebuilt for every system), the same
+   engine locally and in CI. Not the full browser: it never returns from `--print-to-pdf` on
+   macOS. It is a build dependency of the PDF, so it stays here even if a system config also
+   installs a browser. Each page gets two minutes, so a hung Chromium fails the build.
 
 ## Content
 
@@ -50,7 +53,7 @@ Guidance for Claude Code when working in this repo. See [README.md](README.md) f
 ## i18n
 
 - Locales: `src/i18n/locales.ts` (`fr`, `en`). Adding one (e.g. `ja`) = add it there and its strings
-  in `src/i18n/ui.ts`; `scripts/pdf.mjs` prints `fr,en` unless `RIREKISHO_LOCALES` says otherwise.
+  in `src/i18n/ui.ts`; `scripts/pdf.nu` prints `fr,en` unless `RIREKISHO_LOCALES` says otherwise.
   A Japanese page also needs the full Noto Serif JP (see the font note below).
 - Pages: `/fr/` and `/en/` from `src/pages/[lang]/index.astro`; `/` picks the browser's language
   client-side (a static host has no `Accept-Language`), falling back to the default locale.
