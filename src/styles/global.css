@@ -113,7 +113,7 @@ ul {
   display: none;
 }
 
-/* The PDF is this page printed by Chromium (scripts/pdf.mjs): A4, light, no controls. */
+/* The PDF is this page printed by Chromium (scripts/pdf.nu): A4, light, no controls. */
 @page {
   size: A4;
   margin: 12mm 13mm;

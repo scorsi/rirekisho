@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "pdf": "node scripts/pdf.mjs",
+    "pdf": "nu scripts/pdf.nu",
     "format": "prettier --write .",
     "lint": "prettier --check . && astro check"
   },
@@ -27,7 +27,6 @@
     "@astrojs/check": "^0.9.10",
     "@types/node": "^22.20.5",
     "@types/qrcode": "^1.5.6",
-    "playwright-core": "^1.63.0",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
     "prettier-plugin-svelte": "^4.1.1",
