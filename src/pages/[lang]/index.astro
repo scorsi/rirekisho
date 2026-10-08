@@ -36,7 +36,7 @@ const [experience, education, skills, languages, interests] = await Promise.all(
   getLanguages(),
   getInterests(),
 ]);
-// The PDF folds the compact (oldest) positions into a single line, after the detailed ones.
+// The PDF folds the compact (oldest) positions into one titled entry, after the detailed ones.
 const earlier = experience.filter(({ data }) => data.compact);
 
 // The QR code only makes sense once the site has a public address (RIREKISHO_SITE).
@@ -168,6 +168,7 @@ const handle =
               pdfSummary={pick(data.pdf_summary, locale)}
               start={data.start}
               end={data.end}
+              precision={data.precision}
               summary={pick(data.summary, locale)}
               highlights={data.highlights.map((h) => pick(h, locale))}
               tags={data.tags}
@@ -178,8 +179,8 @@ const handle =
             <TimelineItem
               locale={locale}
               only="print"
-              printLine
-              title={earlier
+              title={t("experience.earlier")}
+              summary={earlier
                 .map(({ data }) => {
                   const where = data.company ?? (data.contract && t(`contract.${data.contract}`));
                   return where
@@ -206,6 +207,7 @@ const handle =
               location={pick(data.location, locale)}
               start={data.start}
               end={data.end}
+              precision={data.precision}
               summary={pick(data.summary, locale)}
               draft={data.draft}
             />
@@ -226,6 +228,7 @@ const handle =
               location={pick(data.location, locale)}
               start={data.start}
               end={data.end}
+              precision={data.precision}
               summary={pick(data.summary, locale)}
               draft={data.draft}
             />

@@ -15,7 +15,6 @@ en = "AI Cloud Engineer"
 fr = "Région de Tokyo, Japon"
 en = "Greater Tokyo Area, Japan"
 
-# TODO: brouillon tiré du résumé LinkedIn, à valider.
 [me.summary]
 fr = """
 Plus de 15 ans de code, du développement web au backend, à la data et au cloud, et aujourd'hui \
