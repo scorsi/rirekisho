@@ -1,6 +1,9 @@
-# Builds the site and its PDFs on every push. Publishing is not wired yet: where the résumé is served
-# from is still to be decided (see sekkeizu's site.nix for the pattern: a directory on ishizue the
-# runner may write to, served by Caddy).
+# Builds the site and its PDFs on every push and publishes them into /var/lib/rirekisho on ishizue,
+# which Caddy serves on the tailnet (sekkeizu's modules/nixos/rirekisho.nix: the runner may write
+# there and nowhere else).
+#
+# RIREKISHO_SITE is left unset until the résumé has a public address: the PDF's QR code would
+# otherwise point recruiters to a tailnet name they can't reach.
 on:
   push:
     branches: [main]
@@ -17,6 +20,7 @@ jobs:
         env:
           RIREKISHO_EMAIL: ${{ secrets.RIREKISHO_EMAIL }}
           RIREKISHO_PHONE: ${{ secrets.RIREKISHO_PHONE }}
+      - run: rsync -a --delete dist/ /var/lib/rirekisho/
       - uses: https://code.forgejo.org/actions/upload-artifact@v3
         with:
           name: rirekisho
