@@ -31,11 +31,20 @@
               pkgs.nodejs_22
               pkgs.pnpm
             ];
-            # `pnpm pdf` needs a Chromium; nixpkgs only builds it for Linux. On macOS the script falls
-            # back to an installed Google Chrome.
-            env = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
-              CHROMIUM_PATH = lib.getExe pkgs.chromium;
-            };
+            # `pnpm pdf` needs a Chromium. nixpkgs only builds `chromium` for Linux; on macOS, Playwright's
+            # prebuilt Chrome for Testing is the free alternative (dev only, CI runs on Linux).
+            # aarch64-darwin is the only Darwin system above, hence chrome-mac-arm64.
+            env =
+              lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+                CHROMIUM_PATH = lib.getExe pkgs.chromium;
+              }
+              // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+                CHROMIUM_PATH =
+                  let
+                    inherit (pkgs.playwright-driver) browsers-chromium browsersJSON;
+                  in
+                  "${browsers-chromium}/chromium-${browsersJSON.chromium.revision}/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing";
+              };
           };
         }
       );
