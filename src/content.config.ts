@@ -48,8 +48,12 @@ const experience = defineCollection({
       roles: z
         .array(z.object({ title: localized, start: month, end: month.optional() }))
         .default([]),
-      // An older position kept for continuity: a short summary on the web, a single line in the PDF.
+      // An older position kept for continuity: a short summary on the web. In the PDF, all compact
+      // entries are folded into one line, so they should be the oldest ones.
       compact: z.boolean().default(false),
+      // The PDF's text for this entry, in place of its summary and highlights: one short paragraph
+      // reads better on paper than a list cut down to a bullet or two.
+      pdf_summary: localized.optional(),
       summary: localized.optional(),
       highlights: z.array(localized).default([]),
       tags: z.array(z.string()).default([]),

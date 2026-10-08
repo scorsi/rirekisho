@@ -15,14 +15,13 @@ en = "AI Cloud Engineer"
 fr = "Région de Tokyo, Japon"
 en = "Greater Tokyo Area, Japan"
 
-# TODO: à relire et compléter (brouillon écrit à partir de l'ancien CV).
+# TODO: brouillon tiré du résumé LinkedIn, à valider.
 [me.summary]
 fr = """
-Ingénieur cloud spécialisé dans l'infrastructure GenAI : passerelle LLM centralisée multi-fournisseurs \
-(Azure AI Foundry, AWS Bedrock, OpenAI), routage multi-région, pipelines d'évaluation et architectures \
-d'agents. Venu du développement puis de la data, passé par le DevOps et Kubernetes en production."""
+Plus de 15 ans de code, du développement web au backend, à la data et au cloud, et aujourd'hui \
+l'infrastructure LLM et le MLOps. Ce qui me plaît : rendre des systèmes complexes fiables, scalables \
+et simples à utiliser pour les autres ingénieurs."""
 en = """
-Cloud engineer specialised in GenAI infrastructure: a centralised multi-provider LLM gateway \
-(Azure AI Foundry, AWS Bedrock, OpenAI), multi-region routing, evaluation pipelines and agent \
-architectures. Came from software development and data engineering, then DevOps and Kubernetes in \
-production."""
+Over 15 years of writing code, from web development to backend, data and cloud, and now LLM \
+infrastructure and MLOps. What I enjoy most: making complex systems reliable, scalable and easy for \
+other engineers to build on."""
