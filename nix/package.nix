@@ -20,6 +20,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     fileset = lib.fileset.unions [
       ../package.json
       ../pnpm-lock.yaml
+      ../pnpm-workspace.yaml
       ../astro.config.mjs
       ../svelte.config.js
       ../tsconfig.json
@@ -33,7 +34,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     inherit pnpm;
     fetcherVersion = 4;
     # Refresh after any change to pnpm-lock.yaml: set to "", build, copy the hash from the error.
-    hash = lib.fakeHash;
+    hash = "sha256-7LtcAr4Ysllas3fttoJMgM+IXJAkxltHpmWssgEzDNM=";
   };
 
   nativeBuildInputs = [

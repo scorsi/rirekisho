@@ -1,0 +1,4 @@
+# esbuild's postinstall only re-checks its binary, which already comes from the @esbuild/<platform>
+# package; no install script is needed, and none runs in the Nix sandbox either.
+allowBuilds:
+  esbuild: false
