@@ -27,9 +27,26 @@ function currentMonth(): Month {
   return new Date().toISOString().slice(0, 7);
 }
 
-export function formatPeriod(start: Month | undefined, end: Month | undefined, locale: Locale) {
+export type Precision = "month" | "year";
+
+export function formatPeriod(
+  start: Month | undefined,
+  end: Month | undefined,
+  locale: Locale,
+  precision: Precision = "month",
+) {
   const t = useTranslations(locale);
   if (!start) return { range: "", duration: "" };
+
+  // A school year: "2015 – 2020", "5 years". The months would only add noise.
+  if (precision === "year") {
+    const to = end ? end.slice(0, 4) : t("date.present");
+    const years = Math.max(1, Math.round(monthsBetween(start, end ?? currentMonth()) / 12));
+    return {
+      range: start.slice(0, 4) === to ? to : `${start.slice(0, 4)} – ${to}`,
+      duration: t("duration.years", { n: years }),
+    };
+  }
 
   const range =
     start === end

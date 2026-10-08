@@ -1,13 +1,12 @@
-# TODO: à mettre à jour (repris tel quel de l'ancien CV).
 [board-games]
 order = 3
 title = { fr = "Jeux de société", en = "Board games" }
-description = { fr = "Pour l'interaction qu'ils créent autour d'une table ; plus de 50 jeux à la maison.", en = "For the interaction they create around a table; over 50 games at home." }
+description = { fr = "Pour les moments passés avec d'autres autour d'une table, toujours détendus et agréables.", en = "For the time spent with others around a table, always relaxed and pleasant." }
 
 [reading]
 order = 4
 title = { fr = "Romans et mangas", en = "Novels and manga" }
-description = { fr = "Fantastique et science-fiction surtout, et la culture manga et animé.", en = "Mostly fantasy and science fiction, and manga and anime culture." }
+description = { fr = "Fantastique, science-fiction, romance et drama : s'évader dans des univers colorés et joyeux.", en = "Fantasy, science fiction, romance and drama: escaping into colourful, joyful worlds." }
 
 [music]
 order = 2

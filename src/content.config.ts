@@ -10,6 +10,8 @@ const month = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/, "expected YYYY-MM");
 const dated = z
   .object({
     draft: z.boolean().default(false),
+    // "year": shown as "2015 – 2020", "5 years" (a degree); "month" for positions.
+    precision: z.enum(["month", "year"]).default("month"),
     start: month.optional(),
     // Absent: ongoing.
     end: month.optional(),

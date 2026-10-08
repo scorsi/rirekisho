@@ -4,6 +4,7 @@ url = "https://www.epitech.eu/"
 location = { fr = "Lille, France", en = "Lille, France" }
 start = "2015-09"
 end = "2020-09"
+precision = "year"
 title = { fr = "Architecte Développeur Logiciel (titre RNCP niveau 7)", en = "Software Architect (Master's level)" }
 summary.fr = "Pédagogie par projets : C et C++ en profondeur, autonomie, travail en équipe."
 summary.en = "Project-based learning: C and C++ in depth, autonomy, teamwork."
