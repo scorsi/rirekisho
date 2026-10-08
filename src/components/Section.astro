@@ -2,11 +2,12 @@
 interface Props {
   n: number;
   title: string;
+  class?: string;
 }
-const { n, title } = Astro.props;
+const { n, title, class: className } = Astro.props;
 ---
 
-<section>
+<section class={className}>
   <h2>
     <span class="n">{String(n).padStart(2, "0")}</span>
     {title}

@@ -85,7 +85,7 @@ vermilion (朱) accent. Refine it; don't reinvent it.
   boxed mono `#tag`s). Dotted separators. A draft gets a « brouillon » badge. On mobile the dates move
   above.
 - **Bottom**: skills / languages / interests in 3 columns (2 below 900 px, 1 below 600 px). Skills =
-  vermilion uppercase mono label, items separated by « · ».
+  vermilion uppercase mono label, items as discreet outlined chips.
 - **Footer**: `built with astro · nix build` and the build date.
 
 ### Print (PDF, A4)
