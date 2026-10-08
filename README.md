@@ -10,5 +10,6 @@ pnpm dev            # http://localhost:4321, drafts included
 pnpm build && pnpm pdf
 ```
 
-Content lives in `src/data/*.toml`, validated at build time (`src/content.config.ts`). The phone
-number is not in the repository: set `RIREKISHO_PHONE` when building.
+Content lives in `src/data/*.toml`, validated at build time (`src/content.config.ts`). The email
+address and phone number are not in the repository: set `RIREKISHO_EMAIL` and `RIREKISHO_PHONE`
+when building.

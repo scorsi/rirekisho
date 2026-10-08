@@ -17,7 +17,7 @@ import {
   getProfile,
   getSkills,
 } from "../../lib/content";
-import { phone } from "../../lib/contact";
+import { email, phone } from "../../lib/contact";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -114,9 +114,11 @@ const handle =
           {initials}
         </p>
         <ul class="contact">
-          <li>
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          </li>
+          {email && (
+            <li>
+              <a href={email.href}>{email.display}</a>
+            </li>
+          )}
           {phone && (
             <li>
               <a href={phone.href}>{phone.display}</a>

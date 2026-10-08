@@ -25,7 +25,6 @@ const profile = defineCollection({
     name: z.string(),
     headline: localized,
     location: localized,
-    email: z.email(),
     links: z.array(link).default([]),
     summary: localized,
     availability: localized.optional(),

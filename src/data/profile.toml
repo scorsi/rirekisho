@@ -1,8 +1,7 @@
-# Contact details that should not live in a public repository (the phone number) are injected at
-# build time: RIREKISHO_PHONE, see src/lib/contact.ts.
+# Contact details that should not live in a public repository (email, phone) are injected at build
+# time: RIREKISHO_EMAIL and RIREKISHO_PHONE, see src/lib/contact.ts.
 [me]
 name = "Sylvain Corsini"
-email = "contact@example.com"
 links = [
   { label = "GitHub", url = "https://github.com/scorsi" },
   { label = "LinkedIn", url = "https://www.linkedin.com/in/dev-scorsi/" },
