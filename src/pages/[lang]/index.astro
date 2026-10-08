@@ -36,6 +36,8 @@ const [experience, education, skills, languages, interests] = await Promise.all(
   getLanguages(),
   getInterests(),
 ]);
+// The PDF folds the compact (oldest) positions into a single line, after the detailed ones.
+const earlier = experience.filter(({ data }) => data.compact);
 
 // The QR code only makes sense once the site has a public address (RIREKISHO_SITE).
 const onlineUrl = Astro.site ? new URL(`${base}${locale}/`, Astro.site).href : undefined;
@@ -160,6 +162,8 @@ const handle =
             .map((r) => `${pick(r.title, locale)} ${formatYears(r.start, r.end)}`)
             .join(" → ")}
           compact={data.compact}
+          only={data.compact ? "screen" : undefined}
+          pdfSummary={pick(data.pdf_summary, locale)}
           start={data.start}
           end={data.end}
           summary={pick(data.summary, locale)}
@@ -168,6 +172,24 @@ const handle =
           draft={data.draft}
         />
       ))}
+      {earlier.length > 0 && (
+        <TimelineItem
+          locale={locale}
+          only="print"
+          printLine
+          title={earlier
+            .map(({ data }) => {
+              const where = data.company ?? (data.contract && t(`contract.${data.contract}`));
+              return where ? `${pick(data.title, locale)} (${where})` : pick(data.title, locale);
+            })
+            .join(" · ")}
+          start={earlier.map(({ data }) => data.start ?? "").sort()[0]}
+          end={earlier
+            .map(({ data }) => data.end ?? "")
+            .sort()
+            .at(-1)}
+        />
+      )}
     </Section>
 
     <Section n={2} title={t("section.education")}>
@@ -181,6 +203,7 @@ const handle =
           start={data.start}
           end={data.end}
           summary={pick(data.summary, locale)}
+          printLine
           draft={data.draft}
         />
       ))}
@@ -604,22 +627,32 @@ const handle =
 
     .lead {
       max-width: none;
-      margin-top: 14px;
-      font-size: 12pt;
+      margin-top: 10px;
+      font-size: 11pt;
+      line-height: 1.4;
     }
 
+    /* This row decides whether the PDF fits on one page; languages need room for their level. */
     .three {
+      grid-template-columns: 1.6fr 1.25fr 1fr;
       gap: 7mm;
       margin-top: 16px;
       break-inside: avoid;
     }
 
     .skills > div {
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
+    /* The label runs in, before its list, instead of taking a line of its own. */
     dt {
+      display: inline;
+      margin-right: 0.6em;
       font-size: 7pt;
+    }
+
+    dd {
+      display: inline;
     }
 
     dd {
@@ -634,15 +667,34 @@ const handle =
       font-size: 7.8pt;
     }
 
-    .interests li {
-      margin-top: 5px;
+    /* Titles only, on one wrapping line: the descriptions stay in the online version. */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 4px;
     }
 
-    .interests p {
-      font-size: 8.4pt;
+    .interests li {
+      margin-top: 0;
+    }
+
+    .interests li:not(:last-child)::after {
+      content: "·";
+      margin: 0 0.4em;
+      color: var(--muted);
+    }
+
+    .interests b {
+      font-weight: 500;
+    }
+
+    .interests p:not(.link) {
+      display: none;
     }
 
     .interests .link {
+      display: inline;
+      margin-left: 0.3em;
       font-size: 7.8pt;
     }
   }

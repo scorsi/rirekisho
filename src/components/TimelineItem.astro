@@ -12,6 +12,10 @@ interface Props {
   contract?: string;
   progression?: string;
   compact?: boolean;
+  // Printed as a single line: title · company · location, no duration or text.
+  printLine?: boolean;
+  pdfSummary?: string;
+  only?: "screen" | "print";
   start?: string;
   end?: string;
   summary?: string;
@@ -29,6 +33,9 @@ const {
   contract,
   progression,
   compact,
+  printLine,
+  pdfSummary,
+  only,
   start,
   end,
   summary,
@@ -40,7 +47,15 @@ const t = useTranslations(locale);
 const { range, duration } = formatPeriod(start, end, locale);
 ---
 
-<article class:list={{ draft, compact }}>
+<article
+  class:list={{
+    draft,
+    compact,
+    "print-line": printLine,
+    "no-print": only === "screen",
+    "print-only": only === "print",
+  }}
+>
   <p class="when">
     <span>{range || t("date.unknown")}</span>
     {duration && <span class="muted">{duration}</span>}
@@ -74,9 +89,10 @@ const { range, duration } = formatPeriod(start, end, locale);
       </p>
     )}
     {progression && <p class="progression">{progression}</p>}
-    {summary && <p class="summary">{summary}</p>}
+    {summary && <p class:list={["summary", { "no-print": pdfSummary }]}>{summary}</p>}
+    {pdfSummary && <p class="summary print-only">{pdfSummary}</p>}
     {highlights.length > 0 && (
-      <ul class="highlights">
+      <ul class:list={["highlights", { "no-print": pdfSummary }]}>
         {highlights.map((h) => (
           <li>{h}</li>
         ))}
@@ -152,6 +168,10 @@ const { range, duration } = formatPeriod(start, end, locale);
     max-width: 68ch;
   }
 
+  article.print-only {
+    display: none;
+  }
+
   .compact {
     padding: 16px 0;
   }
@@ -220,7 +240,7 @@ const { range, duration } = formatPeriod(start, end, locale);
     article {
       grid-template-columns: 37mm minmax(0, 1fr);
       gap: 5mm;
-      padding: 7px 0;
+      padding: 5px 0;
       break-inside: avoid;
     }
 
@@ -246,14 +266,9 @@ const { range, duration } = formatPeriod(start, end, locale);
       margin-top: 1px;
     }
 
+    /* The technologies are in the text and in the skills section; the PDF has no room to repeat them. */
     .tags {
-      margin-top: 4px;
-      gap: 4px;
-    }
-
-    .tags li {
-      font-size: 7pt;
-      padding: 0 5px;
+      display: none;
     }
 
     .progression {
@@ -262,33 +277,36 @@ const { range, duration } = formatPeriod(start, end, locale);
     }
 
     /* One line: dates, then title · company · location. The detail stays in the online version. */
-    .compact {
+    .print-line {
       padding: 3px 0;
     }
 
-    .compact .when .muted,
-    .compact .summary,
-    .compact .highlights,
-    .compact .tags {
+    article.print-only {
+      display: grid;
+    }
+
+    .print-line .when .muted,
+    .print-line .summary,
+    .print-line .highlights {
       display: none;
     }
 
-    .compact .what {
+    .print-line .what {
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
     }
 
-    .compact h3 {
+    .print-line h3 {
       font-size: 9.2pt;
       font-weight: 500;
     }
 
-    .compact .org {
+    .print-line .org {
       margin-top: 0;
     }
 
-    .compact .org::before {
+    .print-line .org::before {
       content: "·";
       margin: 0 0.35em;
     }
