@@ -1,0 +1,15 @@
+# TODO: à mettre à jour (repris tel quel de l'ancien CV).
+[board-games]
+order = 1
+title = { fr = "Jeux de société", en = "Board games" }
+description = { fr = "Pour l'interaction qu'ils créent autour d'une table ; plus de 50 jeux à la maison.", en = "For the interaction they create around a table; over 50 games at home." }
+
+[reading]
+order = 2
+title = { fr = "Romans et mangas", en = "Novels and manga" }
+description = { fr = "Fantastique et science-fiction surtout, et la culture manga et animé.", en = "Mostly fantasy and science fiction, and manga and anime culture." }
+
+[music]
+order = 3
+title = { fr = "Musique", en = "Music" }
+description = { fr = "Toujours des écouteurs sur les oreilles ; apprentissage du piano.", en = "Always wearing headphones; learning the piano." }

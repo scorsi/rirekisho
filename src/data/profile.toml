@@ -1,0 +1,29 @@
+# Contact details that should not live in a public repository (the phone number) are injected at
+# build time: RIREKISHO_PHONE, see src/lib/contact.ts.
+[me]
+name = "Sylvain Corsini"
+email = "contact@example.com"
+links = [
+  { label = "GitHub", url = "https://github.com/scorsi" },
+  { label = "LinkedIn", url = "https://www.linkedin.com/in/dev-scorsi/" },
+]
+
+[me.headline]
+fr = "Senior AI Cloud Engineer"
+en = "Senior AI Cloud Engineer"
+
+[me.location]
+fr = "Bordeaux, France"
+en = "Bordeaux, France"
+
+# TODO: à relire et compléter (brouillon écrit à partir de l'ancien CV).
+[me.summary]
+fr = """
+Ingénieur cloud spécialisé dans l'infrastructure GenAI : passerelle LLM centralisée multi-fournisseurs \
+(Azure AI Foundry, AWS Bedrock, OpenAI), routage multi-région, pipelines d'évaluation et architectures \
+d'agents. Venu du développement puis de la data, passé par le DevOps et Kubernetes en production."""
+en = """
+Cloud engineer specialised in GenAI infrastructure: a centralised multi-provider LLM gateway \
+(Azure AI Foundry, AWS Bedrock, OpenAI), multi-region routing, evaluation pipelines and agent \
+architectures. Came from software development and data engineering, then DevOps and Kubernetes in \
+production."""
