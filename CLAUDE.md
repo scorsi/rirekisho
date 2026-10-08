@@ -107,6 +107,9 @@ vermilion (朱) accent. Refine it; don't reinvent it.
 
 - `nix/package.nix` builds `dist/` without the PDFs (printing needs a browser; CI runs `pnpm pdf`
   outside the sandbox, `.forgejo/workflows/build.yml`).
+- Deployment: that workflow then copies `dist/` into `/var/lib/rirekisho` on ishizue, served by Caddy
+  on the tailnet (sekkeizu, `modules/nixos/rirekisho.nix`). A public front (own domain, VPS) comes
+  later; `RIREKISHO_SITE`, hence the QR code, waits for it.
 - After any change to `pnpm-lock.yaml`, refresh `pnpmDeps.hash`: set it to `""`, `nix build`, copy
   the hash from the error.
 - pnpm 11 refuses packages published less than 24 h ago (`minimumReleaseAge`), and checks the whole
