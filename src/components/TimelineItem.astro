@@ -1,0 +1,219 @@
+---
+import type { Locale } from "../i18n/locales";
+import { useTranslations } from "../i18n/ui";
+import { formatPeriod } from "../lib/dates";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  org?: string;
+  url?: string;
+  location?: string;
+  start?: string;
+  end?: string;
+  summary?: string;
+  highlights?: string[];
+  tags?: string[];
+  draft?: boolean;
+}
+
+const {
+  locale,
+  title,
+  org,
+  url,
+  location,
+  start,
+  end,
+  summary,
+  highlights = [],
+  tags = [],
+  draft,
+} = Astro.props;
+const t = useTranslations(locale);
+const { range, duration } = formatPeriod(start, end, locale);
+---
+
+<article class:list={{ draft }}>
+  <p class="when">
+    <span>{range || t("date.unknown")}</span>
+    {duration && <span class="muted">{duration}</span>}
+  </p>
+  <div class="what">
+    <h3>
+      {title}
+      {draft && <span class="badge">{t("draft")}</span>}
+    </h3>
+    {(org || location) && (
+      <p class="org">
+        {org && (url ? <a href={url}>{org}</a> : <span>{org}</span>)}
+        {org && location && <span aria-hidden="true"> · </span>}
+        {location && <span class="muted">{location}</span>}
+      </p>
+    )}
+    {summary && <p class="summary">{summary}</p>}
+    {highlights.length > 0 && (
+      <ul class="highlights">
+        {highlights.map((h) => (
+          <li>{h}</li>
+        ))}
+      </ul>
+    )}
+    {tags.length > 0 && (
+      <ul class="tags">
+        {tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+    )}
+  </div>
+</article>
+
+<style>
+  article {
+    display: grid;
+    grid-template-columns: 185px minmax(0, 1fr);
+    gap: 32px;
+    padding: 22px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  article:last-child {
+    border-bottom: 0;
+  }
+
+  .when {
+    display: flex;
+    flex-direction: column;
+    font: 12.5px/1.7 var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .draft .when {
+    color: var(--muted);
+  }
+
+  h3 {
+    font: 600 17px/1.35 var(--sans);
+    letter-spacing: -0.005em;
+  }
+
+  .badge {
+    margin-left: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font: 500 10.5px var(--mono);
+    vertical-align: 3px;
+    color: var(--shu);
+    background: var(--shu-soft);
+  }
+
+  .org {
+    margin-top: 2px;
+    color: var(--muted);
+  }
+
+  .org a,
+  .org > span:first-child {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .summary {
+    margin-top: 10px;
+    max-width: 68ch;
+  }
+
+  .highlights {
+    margin-top: 8px;
+  }
+
+  .highlights li {
+    position: relative;
+    max-width: 68ch;
+    margin-top: 4px;
+    padding-left: 18px;
+  }
+
+  .highlights li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--shu);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .tags li {
+    font: 11.5px var(--mono);
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1px 7px;
+  }
+
+  .tags li::before {
+    content: "#";
+    color: var(--shu);
+  }
+
+  @media screen and (max-width: 640px) {
+    article {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 18px 0;
+    }
+
+    .when {
+      flex-direction: row;
+      gap: 10px;
+      font-size: 12px;
+    }
+  }
+
+  @media print {
+    article {
+      grid-template-columns: 37mm minmax(0, 1fr);
+      gap: 5mm;
+      padding: 7px 0;
+      break-inside: avoid;
+    }
+
+    .when {
+      font-size: 7.6pt;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    h3 {
+      font-size: 10pt;
+    }
+
+    .summary {
+      margin-top: 3px;
+    }
+
+    .highlights {
+      margin-top: 2px;
+    }
+
+    .highlights li {
+      margin-top: 1px;
+    }
+
+    .tags {
+      margin-top: 4px;
+      gap: 4px;
+    }
+
+    .tags li {
+      font-size: 7pt;
+      padding: 0 5px;
+    }
+  }
+</style>

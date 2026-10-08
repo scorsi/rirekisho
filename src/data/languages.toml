@@ -1,0 +1,15 @@
+# TODO: niveaux à confirmer.
+[fr]
+order = 1
+name = { fr = "Français", en = "French" }
+level = { fr = "Langue maternelle", en = "Native" }
+
+[en]
+order = 2
+name = { fr = "Anglais", en = "English" }
+level = { fr = "Professionnel", en = "Professional" }
+
+[ja]
+order = 3
+name = { fr = "Japonais", en = "Japanese" }
+level = { fr = "En apprentissage", en = "Learning" }

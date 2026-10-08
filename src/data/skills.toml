@@ -1,0 +1,15 @@
+# TODO: à relire, l'ancienne liste datait de 2022.
+[genai]
+order = 1
+label = { fr = "GenAI", en = "GenAI" }
+items = ["LiteLLM", "Azure AI Foundry", "AWS Bedrock", "OpenAI", "LangGraph"]
+
+[cloud]
+order = 2
+label = { fr = "Cloud & infrastructure", en = "Cloud & infrastructure" }
+items = ["Azure", "AWS", "GCP", "Kubernetes", "Docker", "Nix / NixOS"]
+
+[languages]
+order = 3
+label = { fr = "Langages", en = "Languages" }
+items = ["Python", "Go", "Rust", "Zig", "TypeScript", "Java", "Kotlin", "PHP", "Elixir"]

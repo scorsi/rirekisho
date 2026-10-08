@@ -1,0 +1,90 @@
+# One table per position; the key is only an identifier. Sorted by `start` on the page.
+# Dates are "YYYY-MM"; no `end` means ongoing. `draft = true` keeps an entry out of the build.
+
+# TODO: dates, intitulé exact et réalisations.
+[betclic]
+draft = true
+company = "Betclic Group"
+url = "https://www.betclicgroup.com/"
+location = { fr = "Bordeaux, France", en = "Bordeaux, France" }
+title = { fr = "Senior AI Cloud Engineer", en = "Senior AI Cloud Engineer" }
+summary.fr = "Infrastructure GenAI du groupe : passerelle LLM centralisée (LiteLLM) devant Azure AI Foundry, AWS Bedrock et OpenAI."
+summary.en = "The group's GenAI infrastructure: a centralised LLM gateway (LiteLLM) in front of Azure AI Foundry, AWS Bedrock and OpenAI."
+highlights = [
+  { fr = "Routage multi-région entre fournisseurs.", en = "Multi-region routing across providers." },
+  { fr = "Pipelines d'évaluation des modèles.", en = "Model evaluation pipelines." },
+  { fr = "Architectures d'agents avec LangGraph.", en = "Agent architectures with LangGraph." },
+]
+tags = ["LiteLLM", "Azure AI Foundry", "AWS Bedrock", "OpenAI", "LangGraph"]
+
+# TODO: dates, intitulé exact et réalisations.
+[asobo]
+draft = true
+company = "Asobo Studio"
+url = "https://www.asobostudio.com/"
+location = { fr = "Bordeaux, France", en = "Bordeaux, France" }
+title = { fr = "Ingénieur Cloud / DevOps", en = "Cloud / DevOps Engineer" }
+highlights = [
+  { fr = "Kubernetes en production sur AKS, astreintes.", en = "Kubernetes in production on AKS, on-call." },
+]
+tags = ["Kubernetes", "AKS", "Azure"]
+
+[adfinitas]
+company = "Adfinitas"
+url = "https://adfinitas.fr/"
+location = { fr = "La Madeleine, France", en = "La Madeleine, France" }
+start = "2018-04"
+end = "2022-04"
+title = { fr = "Lead Développeur / Lead Technique", en = "Lead Developer / Tech Lead" }
+summary.fr = "Arrivé en stage puis en alternance, nommé Lead Développeur en sortie d'école : management du pôle technique, outils internes et sites de campagne pour des associations (La SPA, Médecins du Monde, l'Institut du Cerveau, l'Ordre de Malte, l'Institut Curie…)."
+summary.en = "Joined as an intern then work-study student, made Lead Developer after graduating: managed the tech team, built internal tools and campaign sites for non-profits (La SPA, Médecins du Monde, Paris Brain Institute, Order of Malta, Institut Curie…)."
+highlights = [
+  { fr = "Recrutement et encadrement de stagiaires et d'alternants.", en = "Hired and mentored interns and work-study students." },
+  { fr = "Calicut : réaction en temps réel aux événements des sites et campagnes clients pour synchroniser les outils marketing (inscriptions, dons, vidéos personnalisées).", en = "Calicut: real-time reactions to events on client sites and campaigns, keeping marketing tools in sync (sign-ups, donations, personalised videos)." },
+  { fr = "Prometer : enrichissement de bases de contacts auprès de fournisseurs de données, pour une segmentation fine des campagnes.", en = "Prometer: enriching contact databases through data providers, for fine-grained campaign segmentation." },
+  { fr = "Interface technique avec les clients et les équipes marketing et créatives.", en = "Technical point of contact for clients and the marketing and creative teams." },
+]
+
+[la-redoute]
+company = "La Redoute"
+url = "https://www.laredoute.fr/"
+location = { fr = "Roubaix, France", en = "Roubaix, France" }
+start = "2017-11"
+end = "2018-04"
+title = { fr = "Ingénieur Data", en = "Data Engineer" }
+summary.fr = "Mise en place du système de recommandation de produits personnalisée."
+summary.en = "Rolled out the personalised product recommendation system."
+highlights = [
+  { fr = "L'ensemble des flux temps réel de mise à jour du système, en Java sur GCP (Dataflow).", en = "All the real-time pipelines updating the system, in Java on GCP (Dataflow)." },
+]
+tags = ["Java", "GCP", "Dataflow"]
+
+[freelance]
+location = { fr = "France", en = "France" }
+start = "2016-05"
+end = "2017-11"
+title = { fr = "Développeur web fullstack freelance", en = "Freelance full-stack web developer" }
+summary.fr = "Sites vitrines et application de gestion de rendez-vous pour un organisme de formation en anglais."
+summary.en = "Showcase websites and an appointment-booking application for an English training company."
+tags = ["PHP", "Laravel", "React"]
+
+[epitech-trainer]
+company = "Epitech"
+url = "https://www.epitech.eu/"
+location = { fr = "Lille, France", en = "Lille, France" }
+start = "2017-07"
+end = "2017-07"
+title = { fr = "Formateur en développement web", en = "Web development trainer" }
+summary.fr = "Initiation à la programmation web (HTML, CSS, JS, SQL, PHP, WordPress) pour des étudiants d'écoles de marketing, de commerce et de communication."
+summary.en = "Introduction to web programming (HTML, CSS, JS, SQL, PHP, WordPress) for marketing, business and communication students."
+
+[nuukik]
+company = "Nuukik"
+url = "https://www.nuukik.com/"
+location = { fr = "Villeneuve-d'Ascq, France", en = "Villeneuve-d'Ascq, France" }
+start = "2016-07"
+end = "2016-12"
+title = { fr = "Développeur fullstack", en = "Full-stack developer" }
+summary.fr = "Plugins d'intégration du système de recommandation de produits pour Prestashop, Magento, Drupal et WordPress."
+summary.en = "Integration plugins for the product recommendation engine on Prestashop, Magento, Drupal and WordPress."
+tags = ["PHP", "Java"]

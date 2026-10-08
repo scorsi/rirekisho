@@ -1,0 +1,53 @@
+---
+interface Props {
+  n: number;
+  title: string;
+}
+const { n, title } = Astro.props;
+---
+
+<section>
+  <h2>
+    <span class="n">{String(n).padStart(2, "0")}</span>
+    {title}
+  </h2>
+  <slot />
+</section>
+
+<style>
+  section {
+    margin-top: 52px;
+  }
+
+  h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font: 500 26px/1.2 var(--serif);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .n {
+    font: 500 12px var(--mono);
+    color: var(--shu);
+  }
+
+  @media print {
+    section {
+      margin-top: 16px;
+    }
+
+    h2 {
+      break-after: avoid;
+      font-size: 14pt;
+      padding-bottom: 4px;
+      margin-bottom: 0;
+    }
+
+    .n {
+      font-size: 7.5pt;
+    }
+  }
+</style>

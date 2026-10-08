@@ -1,0 +1,21 @@
+# Builds the site and its PDFs on every push. Publishing is not wired yet: where the résumé is served
+# from is still to be decided (see sekkeizu's site.nix for the pattern: a directory on ishizue the
+# runner may write to, served by Caddy).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: linux
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v4
+      # RIREKISHO_PHONE: optional repository secret, rendered on the page and in the PDF when set.
+      - run: nix develop --command sh -c 'pnpm install --frozen-lockfile && pnpm build && pnpm pdf'
+        env:
+          RIREKISHO_PHONE: ${{ secrets.RIREKISHO_PHONE }}
+      - uses: https://code.forgejo.org/actions/upload-artifact@v3
+        with:
+          name: rirekisho
+          path: dist/

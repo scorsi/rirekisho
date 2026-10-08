@@ -1,0 +1,151 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/newsreader/opsz.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* Only the glyphs of the vertical label (履歴書・職務経歴), subset from Noto Serif JP (OFL): 3 KB
+   instead of megabytes. A Japanese version of the page will need the full font. */
+@font-face {
+  font-family: "Noto Serif JP Tate";
+  src: url("../assets/fonts/noto-serif-jp-tate.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* Sumi (墨, ink): ink on paper, one vermilion (朱) accent. */
+:root {
+  color-scheme: light;
+  --bg: #f7f5f0;
+  --paper: #fffefb;
+  --ink: #1a1917;
+  --muted: #736e66;
+  --rule: #e2ddd3;
+  --shu: #c23b22;
+  --shu-soft: #f4e1dc;
+  --serif: "Newsreader Variable", Georgia, serif;
+  --sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+  --jp: "Noto Serif JP Tate", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121110;
+    --paper: #181716;
+    --ink: #ebe7df;
+    --muted: #9b958b;
+    --rule: #2c2a27;
+    --shu: #ec6a4f;
+    --shu-soft: #35201b;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121110;
+  --paper: #181716;
+  --ink: #ebe7df;
+  --muted: #9b958b;
+  --rule: #2c2a27;
+  --shu: #ec6a4f;
+  --shu-soft: #35201b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--shu);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--shu);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--shu);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.print-only {
+  display: none;
+}
+
+/* The PDF is this page printed by Chromium (scripts/pdf.mjs): A4, light, no controls. */
+@page {
+  size: A4;
+  margin: 12mm 13mm;
+}
+
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --paper: #ffffff;
+    --ink: #1a1917;
+    --muted: #625d55;
+    --rule: #dcd7cd;
+    --shu: #b5361f;
+    --shu-soft: #f4e1dc;
+  }
+
+  body {
+    font-size: 9.2pt;
+    line-height: 1.45;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
