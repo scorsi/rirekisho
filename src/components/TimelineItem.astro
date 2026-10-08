@@ -237,14 +237,17 @@ const { range, duration } = formatPeriod(start, end, locale);
   }
 
   @media print {
+    /* Dates above the title: next to the sidebar, a date column would leave the text too narrow. */
     article {
-      grid-template-columns: 37mm minmax(0, 1fr);
-      gap: 5mm;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
       padding: 5px 0;
       break-inside: avoid;
     }
 
     .when {
+      flex-direction: row;
+      gap: 8px;
       font-size: 7.6pt;
       line-height: 1.5;
       white-space: nowrap;

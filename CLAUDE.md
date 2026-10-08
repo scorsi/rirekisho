@@ -90,9 +90,15 @@ vermilion (朱) accent. Refine it; don't reinvent it.
 
 ### Print (PDF, A4)
 
-- Margins 12/13 mm, always light. No top bar, seal, vertical label or footer; the "online version"
-  QR code sits top right.
-- Tighter sizes: body 9.2 pt, name 30 pt; the date column is 37 mm and never wraps.
+- **One page.** Margins 12/13 mm, always light. No top bar, seal, vertical label or footer; the
+  "online version" QR code sits top right. The web page holds the detail, the PDF a digest.
+- Two columns: experience and education on the left, skills / languages / interests in a 50 mm
+  column on the right (`.body`/`.main` wrappers, `display: contents` on screen). Dates go above
+  each title, a date column would leave the text too narrow.
+- Each position prints its `pdf_summary` (a short paragraph) instead of its summary and highlights;
+  `compact` positions fold into one generated line; education and interests print on one line; no
+  tags.
+- Tighter sizes: body 9.2 pt, name 30 pt. Don't shrink type to make it fit: shorten the text.
 - `break-inside: avoid` on entries, `break-after: avoid` on headings.
 - **Every responsive rule is scoped to `@media screen`**, so none of it leaks into print. Keep it
   that way when adding breakpoints.

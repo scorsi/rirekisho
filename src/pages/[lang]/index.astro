@@ -149,104 +149,110 @@ const handle =
     <p class="lead">{pick(profile.summary, locale)}</p>
     {profile.availability && <p class="availability">{pick(profile.availability, locale)}</p>}
 
-    <Section n={1} title={t("section.experience")}>
-      {experience.map(({ data }) => (
-        <TimelineItem
-          locale={locale}
-          title={pick(data.title, locale)}
-          org={data.company}
-          url={data.url}
-          location={pick(data.location, locale)}
-          contract={data.contract && t(`contract.${data.contract}`)}
-          progression={data.roles
-            .map((r) => `${pick(r.title, locale)} ${formatYears(r.start, r.end)}`)
-            .join(" → ")}
-          compact={data.compact}
-          only={data.compact ? "screen" : undefined}
-          pdfSummary={pick(data.pdf_summary, locale)}
-          start={data.start}
-          end={data.end}
-          summary={pick(data.summary, locale)}
-          highlights={data.highlights.map((h) => pick(h, locale))}
-          tags={data.tags}
-          draft={data.draft}
-        />
-      ))}
-      {earlier.length > 0 && (
-        <TimelineItem
-          locale={locale}
-          only="print"
-          printLine
-          title={earlier
-            .map(({ data }) => {
-              const where = data.company ?? (data.contract && t(`contract.${data.contract}`));
-              return where ? `${pick(data.title, locale)} (${where})` : pick(data.title, locale);
-            })
-            .join(" · ")}
-          start={earlier.map(({ data }) => data.start ?? "").sort()[0]}
-          end={earlier
-            .map(({ data }) => data.end ?? "")
-            .sort()
-            .at(-1)}
-        />
-      )}
-    </Section>
-
-    <Section n={2} title={t("section.education")}>
-      {education.map(({ data }) => (
-        <TimelineItem
-          locale={locale}
-          title={pick(data.title, locale)}
-          org={data.school}
-          url={data.url}
-          location={pick(data.location, locale)}
-          start={data.start}
-          end={data.end}
-          summary={pick(data.summary, locale)}
-          printLine
-          draft={data.draft}
-        />
-      ))}
-    </Section>
-
-    <div class="three">
-      <Section n={3} title={t("section.skills")}>
-        <dl class="skills">
-          {skills.map(({ data }) => (
-            <div>
-              <dt>{pick(data.label, locale)}</dt>
-              <dd>{data.items.join(" · ")}</dd>
-            </div>
+    <div class="body">
+      <div class="main">
+        <Section n={1} title={t("section.experience")}>
+          {experience.map(({ data }) => (
+            <TimelineItem
+              locale={locale}
+              title={pick(data.title, locale)}
+              org={data.company}
+              url={data.url}
+              location={pick(data.location, locale)}
+              contract={data.contract && t(`contract.${data.contract}`)}
+              progression={data.roles
+                .map((r) => `${pick(r.title, locale)} ${formatYears(r.start, r.end)}`)
+                .join(" → ")}
+              compact={data.compact}
+              only={data.compact ? "screen" : undefined}
+              pdfSummary={pick(data.pdf_summary, locale)}
+              start={data.start}
+              end={data.end}
+              summary={pick(data.summary, locale)}
+              highlights={data.highlights.map((h) => pick(h, locale))}
+              tags={data.tags}
+              draft={data.draft}
+            />
           ))}
-        </dl>
-      </Section>
+          {earlier.length > 0 && (
+            <TimelineItem
+              locale={locale}
+              only="print"
+              printLine
+              title={earlier
+                .map(({ data }) => {
+                  const where = data.company ?? (data.contract && t(`contract.${data.contract}`));
+                  return where
+                    ? `${pick(data.title, locale)} (${where})`
+                    : pick(data.title, locale);
+                })
+                .join(" · ")}
+              start={earlier.map(({ data }) => data.start ?? "").sort()[0]}
+              end={earlier
+                .map(({ data }) => data.end ?? "")
+                .sort()
+                .at(-1)}
+            />
+          )}
+        </Section>
 
-      <Section n={4} title={t("section.languages")}>
-        <ul class="langs">
-          {languages.map(({ data }) => (
-            <li>
-              <span>{pick(data.name, locale)}</span>
-              <span class="level">{pick(data.level, locale)}</span>
-            </li>
+        <Section n={2} title={t("section.education")}>
+          {education.map(({ data }) => (
+            <TimelineItem
+              locale={locale}
+              title={pick(data.title, locale)}
+              org={data.school}
+              url={data.url}
+              location={pick(data.location, locale)}
+              start={data.start}
+              end={data.end}
+              summary={pick(data.summary, locale)}
+              printLine
+              draft={data.draft}
+            />
           ))}
-        </ul>
-      </Section>
+        </Section>
+      </div>
 
-      <Section n={5} title={t("section.interests")}>
-        <ul class="interests">
-          {interests.map(({ data }) => (
-            <li>
-              <b>{pick(data.title, locale)}</b>
-              {data.description && <p class="muted">{pick(data.description, locale)}</p>}
-              {data.link && (
-                <p class="link">
-                  <a href={data.link.url}>{data.link.label}</a>
-                </p>
-              )}
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <div class="three">
+        <Section n={3} title={t("section.skills")}>
+          <dl class="skills">
+            {skills.map(({ data }) => (
+              <div>
+                <dt>{pick(data.label, locale)}</dt>
+                <dd>{data.items.join(" · ")}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+
+        <Section n={4} title={t("section.languages")}>
+          <ul class="langs">
+            {languages.map(({ data }) => (
+              <li>
+                <span>{pick(data.name, locale)}</span>
+                <span class="level">{pick(data.level, locale)}</span>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section n={5} title={t("section.interests")}>
+          <ul class="interests">
+            {interests.map(({ data }) => (
+              <li>
+                <b>{pick(data.title, locale)}</b>
+                {data.description && <p class="muted">{pick(data.description, locale)}</p>}
+                {data.link && (
+                  <p class="link">
+                    <a href={data.link.url}>{data.link.label}</a>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      </div>
     </div>
 
     <footer class="no-print">
@@ -443,6 +449,12 @@ const handle =
     color: var(--shu);
   }
 
+  /* Layout wrappers for print only (a sidebar next to the experience); on screen they don't exist. */
+  .body,
+  .main {
+    display: contents;
+  }
+
   .three {
     display: grid;
     grid-template-columns: 1.3fr 1fr 1fr;
@@ -632,27 +644,35 @@ const handle =
       line-height: 1.4;
     }
 
-    /* This row decides whether the PDF fits on one page; languages need room for their level. */
+    /* Skills, languages and interests in a column next to the experience: the page reads as a
+       classic two-column résumé and the experience keeps most of the width. */
+    .body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 50mm;
+      column-gap: 7mm;
+      align-items: start;
+    }
+
+    .main {
+      display: block;
+    }
+
     .three {
-      grid-template-columns: 1.6fr 1.25fr 1fr;
-      gap: 7mm;
-      margin-top: 16px;
-      break-inside: avoid;
+      display: block;
+      margin-top: 0;
+    }
+
+    /* Same spacing as the main column's sections, so both columns start on the same line. */
+    .three :global(section) {
+      margin-top: 12px;
     }
 
     .skills > div {
       margin-top: 4px;
     }
 
-    /* The label runs in, before its list, instead of taking a line of its own. */
     dt {
-      display: inline;
-      margin-right: 0.6em;
       font-size: 7pt;
-    }
-
-    dd {
-      display: inline;
     }
 
     dd {
