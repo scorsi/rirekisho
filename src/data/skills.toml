@@ -6,7 +6,7 @@ items = ["LiteLLM", "Azure AI Foundry", "AWS Bedrock", "OpenAI", "LangGraph", "C
 [cloud]
 order = 2
 label = { fr = "Cloud & infrastructure", en = "Cloud & infrastructure" }
-items = ["Azure", "AWS", "GCP", "Kubernetes", "Docker", "Linux", "Bash", "PowerShell"]
+items = ["Azure", "AWS", "GCP", "Kubernetes", "Helm", "Terraform", "Docker", "Linux", "Bash", "PowerShell"]
 
 [languages]
 order = 3
