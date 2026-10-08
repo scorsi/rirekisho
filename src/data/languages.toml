@@ -12,4 +12,4 @@ level = { fr = "Professionnel", en = "Professional" }
 [ja]
 order = 3
 name = { fr = "Japonais", en = "Japanese" }
-level = { fr = "En apprentissage", en = "Learning" }
+level = { fr = "En apprentissage (N5, auto-évalué)", en = "Learning (N5, self‑assessed)" }

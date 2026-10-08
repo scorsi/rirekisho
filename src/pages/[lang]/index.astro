@@ -196,7 +196,7 @@ const handle =
           )}
         </Section>
 
-        <Section n={2} title={t("section.education")}>
+        <Section n={2} title={t("section.education")} class="no-print">
           {education.map(({ data }) => (
             <TimelineItem
               locale={locale}
@@ -207,7 +207,6 @@ const handle =
               start={data.start}
               end={data.end}
               summary={pick(data.summary, locale)}
-              printLine
               draft={data.draft}
             />
           ))}
@@ -215,12 +214,36 @@ const handle =
       </div>
 
       <div class="three">
+        {/* The PDF puts education at the top of the side column, keeping the sections' numbering in
+            reading order; on screen it stays under the experience. */}
+        <Section n={2} title={t("section.education")} class="print-only">
+          {education.map(({ data }) => (
+            <TimelineItem
+              locale={locale}
+              title={pick(data.title, locale)}
+              org={data.school}
+              url={data.url}
+              location={pick(data.location, locale)}
+              start={data.start}
+              end={data.end}
+              summary={pick(data.summary, locale)}
+              draft={data.draft}
+            />
+          ))}
+        </Section>
+
         <Section n={3} title={t("section.skills")}>
           <dl class="skills">
             {skills.map(({ data }) => (
               <div>
                 <dt>{pick(data.label, locale)}</dt>
-                <dd>{data.items.join(" · ")}</dd>
+                <dd>
+                  <ul class="chips">
+                    {data.items.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </dd>
               </div>
             ))}
           </dl>
@@ -478,8 +501,20 @@ const handle =
   }
 
   dd {
-    margin-top: 2px;
-    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .chips li {
+    padding: 1px 7px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-size: 13px;
   }
 
   .langs li {
@@ -676,7 +711,16 @@ const handle =
     }
 
     dd {
-      font-size: 8.6pt;
+      margin-top: 2px;
+    }
+
+    .chips {
+      gap: 3px;
+    }
+
+    .chips li {
+      padding: 0 4px;
+      font-size: 8pt;
     }
 
     .langs li {
@@ -687,21 +731,13 @@ const handle =
       font-size: 7.8pt;
     }
 
-    /* Titles only, on one wrapping line: the descriptions stay in the online version. */
+    /* Titles only, one per line: the descriptions stay in the online version. */
     .interests {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     .interests li {
-      margin-top: 0;
-    }
-
-    .interests li:not(:last-child)::after {
-      content: "·";
-      margin: 0 0.4em;
-      color: var(--muted);
+      margin-top: 2px;
     }
 
     .interests b {

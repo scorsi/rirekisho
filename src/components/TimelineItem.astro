@@ -245,11 +245,16 @@ const { range, duration } = formatPeriod(start, end, locale);
       break-inside: avoid;
     }
 
+    /* The duration wraps under the dates in the narrow side column, never the dates themselves. */
     .when {
       flex-direction: row;
-      gap: 8px;
+      flex-wrap: wrap;
+      column-gap: 8px;
       font-size: 7.6pt;
       line-height: 1.5;
+    }
+
+    .when span {
       white-space: nowrap;
     }
 
