@@ -44,7 +44,7 @@ company = "ENACO, Whatwapp"
 location = { fr = "Roubaix, Milan", en = "Roubaix, Milan" }
 start = "2023-03"
 end = "2023-09"
-title = { fr = "Lead technique, développeur backend", en = "Technical Lead, Backend Developer" }
+title = { fr = "Développeur backend", en = "Backend Developer" }
 contract = "freelance"
 summary.fr = "Deux missions courtes, dans l'e-learning et le jeu mobile."
 summary.en = "Two short missions, in e-learning and mobile games."
@@ -63,16 +63,16 @@ location = { fr = "Villeneuve-d'Ascq, France", en = "Villeneuve-d'Ascq, France" 
 start = "2022-04"
 end = "2023-05"
 title = { fr = "Lead développeur backend", en = "Lead Backend Developer" }
-summary.fr = "Direction de l'équipe backend des serveurs du jeu et des services en ligne : courses en temps réel jusqu'à un million de joueurs simultanés."
-summary.en = "Led the backend team for the game's core servers and live services: real-time races with up to a million concurrent players."
+summary.fr = "Direction de l'équipe backend et de toute l'infrastructure AWS du jeu : serveurs et services en ligne de courses en temps réel, jusqu'à un million de joueurs simultanés."
+summary.en = "Led the backend team and ran the game's whole AWS infrastructure: core servers and live services for real-time races with up to a million concurrent players."
 highlights = [
+  { fr = "Infrastructure : migration complète de GameSparks vers une stack AWS serverless sur mesure (Lambda, Step Functions, API Gateway, DynamoDB), en infrastructure as code (CDK) avec des environnements de dev et de prod identiques.", en = "Infrastructure: led the full migration off GameSparks to a custom serverless AWS stack (Lambda, Step Functions, API Gateway, DynamoDB), as infrastructure as code (CDK) with mirrored dev and prod environments." },
   { fr = "Moteur de jeu asynchrone réécrit de Node.js en Go : traitement ramené d'environ 5 minutes à 10 secondes, pour un coût d'exploitation plus bas.", en = "Rewrote the asynchronous game engine from Node.js to Go, cutting processing time from about 5 minutes to 10 seconds and lowering operating cost." },
-  { fr = "Migration complète de GameSparks vers une stack AWS sur mesure (Lambda, Step Functions, API Gateway, DynamoDB), décrite en CDK avec des environnements de dev et de prod identiques.", en = "Led the full migration off GameSparks to a custom AWS stack (Lambda, Step Functions, API Gateway, DynamoDB), defined as CDK with mirrored dev and prod environments." },
   { fr = "Responsable de la fiabilité de bout en bout : astreintes, gestion d'incidents et post-mortems pendant les grands événements.", en = "Owned reliability end to end: on-call, incident response and post-mortems through major live events." },
 ]
-tags = ["Go", "Node.js", "AWS", "CDK", "DynamoDB"]
-pdf_summary.fr = "Direction de l'équipe backend d'un jeu de courses en temps réel (jusqu'à un million de joueurs simultanés) : migration de GameSparks vers AWS (Lambda, Step Functions, DynamoDB, CDK), moteur réécrit de Node.js en Go (de 5 minutes à 10 secondes)."
-pdf_summary.en = "Led the backend team of a real-time racing game (up to a million concurrent players): migration off GameSparks to AWS (Lambda, Step Functions, DynamoDB, CDK), engine rewritten from Node.js to Go (from 5 minutes down to 10 seconds)."
+tags = ["AWS", "CDK", "Lambda", "DynamoDB", "Go", "Node.js"]
+pdf_summary.fr = "Direction de l'équipe backend et de toute l'infrastructure AWS d'un jeu de courses en temps réel (jusqu'à un million de joueurs simultanés) : migration de GameSparks vers une stack serverless en infrastructure as code (CDK, Lambda, Step Functions, DynamoDB), astreintes, moteur réécrit de Node.js en Go (de 5 minutes à 10 secondes)."
+pdf_summary.en = "Led the backend team and the whole AWS infrastructure of a real-time racing game (up to a million concurrent players): migration off GameSparks to a serverless stack as infrastructure as code (CDK, Lambda, Step Functions, DynamoDB), on-call, engine rewritten from Node.js to Go (from 5 minutes down to 10 seconds)."
 
 [adfinitas]
 company = "Adfinitas"
@@ -86,15 +86,16 @@ roles = [
   { title = { fr = "alternance", en = "apprenticeship" }, start = "2018-10", end = "2020-09" },
   { title = { fr = "lead technique", en = "technical lead" }, start = "2020-10", end = "2022-04" },
 ]
-summary.fr = "Direction de l'équipe technique et des projets internes et clients, conseil sur la conformité RGPD et la gestion des données."
-summary.en = "Led the technical team and managed internal and client projects, advising on GDPR compliance and data management."
+summary.fr = "Direction de l'équipe technique, des projets internes et clients, et de toute l'infrastructure ; conseil sur la conformité RGPD et la gestion des données."
+summary.en = "Led the technical team, internal and client projects, and the whole infrastructure; advised on GDPR compliance and data management."
 highlights = [
+  { fr = "Infrastructure : conception et exploitation de toute l'infrastructure sur GCP, en serverless, et migrations des clients vers GCP.", en = "Infrastructure: designed and ran the whole infrastructure on GCP (serverless), and migrated clients to GCP." },
   { fr = "Calicut : plateforme de webhooks événementielle, des milliers de requêtes par seconde, qui automatise les processus des clients (e-mails, désinscriptions).", en = "Calicut: an event-driven webhook platform handling thousands of requests per second to automate client workflows such as emails and unsubscriptions." },
-  { fr = "Data lakes et applications multi-tenant conformes au RGPD (dont Prometer, collecte de NPS et génération de leads), migrations de clients vers GCP en serverless.", en = "GDPR-compliant data lakes and multi-tenant apps (including Prometer, for NPS collection and lead generation), client migrations to GCP using serverless architectures." },
+  { fr = "Data lakes et applications multi-tenant conformes au RGPD, dont Prometer (collecte de NPS et génération de leads).", en = "GDPR-compliant data lakes and multi-tenant apps, including Prometer (NPS collection and lead generation)." },
 ]
-tags = ["Go", "Svelte", "GCP"]
-pdf_summary.fr = "Direction de l'équipe technique : Calicut, plateforme de webhooks événementielle (des milliers de requêtes par seconde), data lakes conformes au RGPD et migrations de clients vers GCP."
-pdf_summary.en = "Led the technical team: Calicut, an event-driven webhook platform (thousands of requests per second), GDPR-compliant data lakes and client migrations to GCP."
+tags = ["GCP", "Serverless", "Go", "Svelte"]
+pdf_summary.fr = "Direction de l'équipe technique et de toute l'infrastructure, sur GCP en serverless : Calicut, plateforme de webhooks événementielle (des milliers de requêtes par seconde), data lakes conformes au RGPD, migrations de clients vers GCP."
+pdf_summary.en = "Led the technical team and the whole infrastructure, serverless on GCP: Calicut, an event-driven webhook platform (thousands of requests per second), GDPR-compliant data lakes, client migrations to GCP."
 
 [la-redoute]
 compact = true
