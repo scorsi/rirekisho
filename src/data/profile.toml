@@ -12,8 +12,13 @@ fr = "AI Cloud Engineer"
 en = "AI Cloud Engineer"
 
 [me.location]
-fr = "Région de Tokyo, Japon"
-en = "Greater Tokyo Area, Japan"
+fr = "Bordeaux, France"
+en = "Bordeaux, France"
+
+# Update in January 2027: location Tokyo, and drop or rewrite this line.
+[me.availability]
+fr = "Installation à Tokyo en janvier 2027, disponible à partir de cette date."
+en = "Moving to Tokyo in January 2027, available from then on."
 
 [me.summary]
 fr = """
