@@ -4,7 +4,7 @@ My résumé: a static site (Astro, with Svelte for the bits that need it) and it
 page itself. French and English.
 
 ```sh
-nix develop         # node, pnpm (and Chromium on Linux)
+nix develop         # node, pnpm, Chromium (or direnv: `use flake`)
 pnpm install
 pnpm dev            # http://localhost:4321, drafts included
 pnpm build && pnpm pdf

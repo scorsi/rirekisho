@@ -3,7 +3,7 @@
 //
 //   pnpm build && pnpm pdf
 //
-// Chromium: $CHROMIUM_PATH if set (the Nix dev shell sets it on Linux), else a browser installed by
+// Chromium: $CHROMIUM_PATH if set (the Nix dev shell always sets it), else a browser installed by
 // Playwright, else the system Chrome/Chromium.
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
