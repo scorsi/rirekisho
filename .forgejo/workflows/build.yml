@@ -14,12 +14,18 @@ jobs:
     runs-on: linux
     steps:
       - uses: https://code.forgejo.org/actions/checkout@v4
-      # RIREKISHO_EMAIL, RIREKISHO_PHONE: optional repository secrets, rendered on the page and in the
-      # PDF when set.
-      - run: nix develop --command sh -c 'pnpm install --frozen-lockfile && pnpm build && pnpm pdf'
-        env:
-          RIREKISHO_EMAIL: ${{ secrets.RIREKISHO_EMAIL }}
-          RIREKISHO_PHONE: ${{ secrets.RIREKISHO_PHONE }}
+      # RIREKISHO_EMAIL and RIREKISHO_PHONE come from sops on ishizue (sekkeizu-private,
+      # modules/rirekisho.nix), not from this public repository. Read line by line rather than
+      # sourced, so a value with spaces needs no quotes; a missing file just leaves the lines out.
+      - run: |
+          nix develop --command sh -c '
+            if [ -r /run/secrets/rirekisho-env ]; then
+              while IFS="=" read -r key value; do
+                case $key in RIREKISHO_*) export "$key=$value" ;; esac
+              done < /run/secrets/rirekisho-env
+            fi
+            pnpm install --frozen-lockfile && pnpm build && pnpm pdf
+          '
       - run: rsync -a --delete dist/ /var/lib/rirekisho/
       - uses: https://code.forgejo.org/actions/upload-artifact@v3
         with:

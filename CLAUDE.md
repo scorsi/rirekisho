@@ -24,8 +24,9 @@ Guidance for Claude Code when working in this repo. See [README.md](README.md) f
 1. **No personal contact data in the repo.** The email address and the phone number are read at
    build time from `RIREKISHO_EMAIL` and `RIREKISHO_PHONE` (`src/lib/contact.ts`); without a
    variable its line is simply left out. Never commit them, never put them in a Nix derivation (the
-   store is world-readable): `nix/package.nix` deliberately doesn't read them, CI passes them as
-   Forgejo secrets. The history was rewritten to remove both; keep it that way.
+   store is world-readable): `nix/package.nix` deliberately doesn't read them, CI reads them from
+   a sops file on ishizue (sekkeizu-private, `modules/rirekisho.nix`; locally:
+   `sops exec-env`). The history was rewritten to remove both; keep it that way.
 2. **Where the site lives is decided at build time**: `RIREKISHO_BASE` (base path, default `/`)
    and `RIREKISHO_SITE` (public URL, `astro.config.mjs`). The PDF's "online version" QR code is
    only generated when `RIREKISHO_SITE` is set.
