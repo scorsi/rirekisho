@@ -13,3 +13,9 @@ description = { fr = "Fantastique et science-fiction surtout, et la culture mang
 order = 3
 title = { fr = "Musique", en = "Music" }
 description = { fr = "Toujours des écouteurs sur les oreilles ; apprentissage du piano.", en = "Always wearing headphones; learning the piano." }
+
+[photography]
+order = 4
+title = { fr = "Photographie", en = "Photography" }
+description = { fr = "Photo de rue : saisir des moments du quotidien, pour montrer que chaque coin de rue peut être beau quand on y prête attention.", en = "Street photography: capturing everyday moments, to show that any street corner can be beautiful if you pay attention." }
+link = { label = "@scorsisan", url = "https://www.instagram.com/scorsisan/" }

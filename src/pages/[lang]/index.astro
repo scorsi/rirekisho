@@ -18,6 +18,7 @@ import {
   getSkills,
 } from "../../lib/content";
 import { email, phone } from "../../lib/contact";
+import { formatYears } from "../../lib/dates";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -154,6 +155,11 @@ const handle =
           org={data.company}
           url={data.url}
           location={pick(data.location, locale)}
+          contract={data.contract && t(`contract.${data.contract}`)}
+          progression={data.roles
+            .map((r) => `${pick(r.title, locale)} ${formatYears(r.start, r.end)}`)
+            .join(" → ")}
+          compact={data.compact}
           start={data.start}
           end={data.end}
           summary={pick(data.summary, locale)}
@@ -208,7 +214,12 @@ const handle =
           {interests.map(({ data }) => (
             <li>
               <b>{pick(data.title, locale)}</b>
-              <p class="muted">{pick(data.description, locale)}</p>
+              {data.description && <p class="muted">{pick(data.description, locale)}</p>}
+              {data.link && (
+                <p class="link">
+                  <a href={data.link.url}>{data.link.label}</a>
+                </p>
+              )}
             </li>
           ))}
         </ul>
@@ -462,6 +473,10 @@ const handle =
     font-size: 14px;
   }
 
+  .interests .link {
+    font: 12.5px var(--mono);
+  }
+
   footer {
     display: flex;
     flex-wrap: wrap;
@@ -625,6 +640,10 @@ const handle =
 
     .interests p {
       font-size: 8.4pt;
+    }
+
+    .interests .link {
+      font-size: 7.8pt;
     }
   }
 </style>
