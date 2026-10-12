@@ -31,7 +31,13 @@
   }
 </script>
 
-<button type="button" onclick={cycle} {title} aria-label={`${title} (${labels[theme]})`}>
+<button
+  type="button"
+  class="inline-flex cursor-pointer items-center gap-1.5 hover:text-shu"
+  onclick={cycle}
+  {title}
+  aria-label={`${title} (${labels[theme]})`}
+>
   <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
     {#if theme === "light"}
       <circle cx="12" cy="12" r="4.5" fill="currentColor" />
@@ -49,21 +55,3 @@
   </svg>
   <span>{labels[theme]}</span>
 </button>
-
-<style>
-  button {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font: inherit;
-    color: inherit;
-    background: none;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  button:hover {
-    color: var(--shu);
-  }
-</style>

@@ -49,37 +49,60 @@ const t = useTranslations(locale);
 const { range, duration } = formatPeriod(start, end, locale, precision);
 ---
 
+{/* Dates above the title in print: next to the sidebar, a date column would leave the text too
+    narrow. Compact entries keep their tighter padding at every width. */}
 <article
-  class:list={{
-    draft,
-    compact,
-    "print-line": printLine,
-    "no-print": only === "screen",
-    "print-only": only === "print",
-  }}
+  class:list={[
+    "grid grid-cols-[185px_minmax(0,1fr)] gap-8 border-b border-dashed border-rule last:border-b-0",
+    "narrow:grid-cols-1 narrow:gap-1.5",
+    "print:break-inside-avoid print:grid-cols-[minmax(0,1fr)] print:gap-0 print:py-[5px]",
+    compact ? "py-4" : "py-[22px] narrow:py-[18px]",
+    {
+      "print-line": printLine,
+      "no-print": only === "screen",
+      "hidden print:grid": only === "print",
+    },
+  ]}
 >
-  <p class="when">
-    <span>{range || t("date.unknown")}</span>
-    {duration && <span class="muted">{duration}</span>}
+  {/* The duration wraps under the dates in the narrow side column, never the dates themselves. */}
+  <p
+    class:list={[
+      "flex flex-col font-mono text-[12.5px]/[1.7] tabular-nums",
+      "narrow:flex-row narrow:gap-2.5 narrow:text-[12px]",
+      "print:flex-row print:flex-wrap print:gap-x-2 print:text-[7.6pt]/[1.5]",
+      { "text-muted": draft },
+    ]}
+  >
+    <span class="print:whitespace-nowrap">{range || t("date.unknown")}</span>
+    {duration && <span class="duration text-muted print:whitespace-nowrap">{duration}</span>}
   </p>
   <div class="what">
-    <h3>
+    <h3
+      class:list={[
+        "font-sans font-semibold tracking-[-0.005em] print:text-[10pt]",
+        compact ? "text-[15px]/[1.35]" : "text-[17px]/[1.35]",
+      ]}
+    >
       {title}
-      {draft && <span class="badge">{t("draft")}</span>}
+      {draft && (
+        <span class="ml-2.5 rounded-[3px] bg-shu-soft px-[7px] py-0.5 align-[3px] font-mono text-[10.5px]/[normal] font-medium text-shu">
+          {t("draft")}
+        </span>
+      )}
     </h3>
     {(org || location || contract) && (
-      <p class="org">
+      <p class="org mt-0.5 text-muted">
         {[
           org &&
             (url ? (
-              <a class="company" href={url}>
+              <a class="font-medium text-ink" href={url}>
                 {org}
               </a>
             ) : (
-              <span class="company">{org}</span>
+              <span class="font-medium text-ink">{org}</span>
             )),
-          location && <span class="muted">{location}</span>,
-          contract && <span class="muted">{contract}</span>,
+          location && <span>{location}</span>,
+          contract && <span>{contract}</span>,
         ]
           .filter(Boolean)
           .map((part, i) => (
@@ -90,235 +113,74 @@ const { range, duration } = formatPeriod(start, end, locale, precision);
           ))}
       </p>
     )}
-    {progression && <p class="progression">{progression}</p>}
-    {summary && <p class:list={["summary", { "no-print": pdfSummary }]}>{summary}</p>}
-    {pdfSummary && <p class="summary print-only">{pdfSummary}</p>}
+    {progression && (
+      <p class="mt-1 font-mono text-[12px]/[1.5] text-muted print:mt-px print:text-[7.4pt]">
+        {progression}
+      </p>
+    )}
+    {summary && (
+      <p
+        class:list={[
+          "summary max-w-[68ch] print:mt-[3px]",
+          compact ? "mt-1" : "mt-2.5",
+          { "no-print": pdfSummary },
+        ]}
+      >
+        {summary}
+      </p>
+    )}
+    {pdfSummary && (
+      <p class="mt-2.5 hidden max-w-[68ch] print:mt-[3px] print:block">{pdfSummary}</p>
+    )}
     {highlights.length > 0 && (
-      <ul class:list={["highlights", { "no-print": pdfSummary }]}>
+      <ul class:list={["highlights mt-2 print:mt-0.5", { "no-print": pdfSummary }]}>
         {highlights.map((h) => (
-          <li>{h}</li>
+          <li class="relative mt-1 max-w-[68ch] pl-[18px] before:absolute before:left-0 before:text-shu before:content-['—'] print:mt-px">
+            {h}
+          </li>
         ))}
       </ul>
     )}
-    {tags.length > 0 && (
-      <ul class="tags">
-        {tags.map((tag) => (
-          <li>{tag}</li>
-        ))}
-      </ul>
-    )}
+    {
+      // The technologies are in the text and in the skills section; the PDF has no room to repeat them.
+      tags.length > 0 && (
+        <ul class="mt-3 flex flex-wrap gap-1.5 print:hidden">
+          {tags.map((tag) => (
+            <li class="rounded-[3px] border border-rule px-[7px] py-px font-mono text-[11.5px]/[normal] text-muted before:text-shu before:content-['#']">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </article>
 
 <style>
-  article {
-    display: grid;
-    grid-template-columns: 185px minmax(0, 1fr);
-    gap: 32px;
-    padding: 22px 0;
-    border-bottom: 1px dashed var(--rule);
-  }
+  @reference "../styles/global.css";
 
-  article:last-child {
-    border-bottom: 0;
-  }
-
-  .when {
-    display: flex;
-    flex-direction: column;
-    font: 12.5px/1.7 var(--mono);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .draft .when {
-    color: var(--muted);
-  }
-
-  h3 {
-    font: 600 17px/1.35 var(--sans);
-    letter-spacing: -0.005em;
-  }
-
-  .badge {
-    margin-left: 10px;
-    padding: 2px 7px;
-    border-radius: 3px;
-    font: 500 10.5px var(--mono);
-    vertical-align: 3px;
-    color: var(--shu);
-    background: var(--shu-soft);
-  }
-
-  .org {
-    margin-top: 2px;
-    color: var(--muted);
-  }
-
-  .company {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  .progression {
-    margin-top: 4px;
-    font: 12px/1.5 var(--mono);
-    color: var(--muted);
-  }
-
-  .summary {
-    margin-top: 10px;
-    max-width: 68ch;
-  }
-
-  article.print-only {
-    display: none;
-  }
-
-  .compact {
-    padding: 16px 0;
-  }
-
-  .compact h3 {
-    font-size: 15px;
-  }
-
-  .compact .summary {
-    margin-top: 4px;
-  }
-
-  .highlights {
-    margin-top: 8px;
-  }
-
-  .highlights li {
-    position: relative;
-    max-width: 68ch;
-    margin-top: 4px;
-    padding-left: 18px;
-  }
-
-  .highlights li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--shu);
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 12px;
-  }
-
-  .tags li {
-    font: 11.5px var(--mono);
-    color: var(--muted);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 1px 7px;
-  }
-
-  .tags li::before {
-    content: "#";
-    color: var(--shu);
-  }
-
-  @media screen and (max-width: 640px) {
-    article {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 18px 0;
-    }
-
-    .when {
-      flex-direction: row;
-      gap: 10px;
-      font-size: 12px;
-    }
-  }
-
+  /* One line: dates, then title · company · location. The detail stays in the online version. */
   @media print {
-    /* Dates above the title: next to the sidebar, a date column would leave the text too narrow. */
-    article {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0;
-      padding: 5px 0;
-      break-inside: avoid;
-    }
-
-    /* The duration wraps under the dates in the narrow side column, never the dates themselves. */
-    .when {
-      flex-direction: row;
-      flex-wrap: wrap;
-      column-gap: 8px;
-      font-size: 7.6pt;
-      line-height: 1.5;
-    }
-
-    .when span {
-      white-space: nowrap;
-    }
-
-    h3 {
-      font-size: 10pt;
-    }
-
-    .summary {
-      margin-top: 3px;
-    }
-
-    .highlights {
-      margin-top: 2px;
-    }
-
-    .highlights li {
-      margin-top: 1px;
-    }
-
-    /* The technologies are in the text and in the skills section; the PDF has no room to repeat them. */
-    .tags {
-      display: none;
-    }
-
-    .progression {
-      margin-top: 1px;
-      font-size: 7.4pt;
-    }
-
-    /* One line: dates, then title · company · location. The detail stays in the online version. */
     .print-line {
-      padding: 3px 0;
+      @apply py-[3px];
     }
 
-    article.print-only {
-      display: grid;
-    }
-
-    .print-line .when .muted,
+    .print-line .duration,
     .print-line .summary,
     .print-line .highlights {
-      display: none;
+      @apply hidden;
     }
 
     .print-line .what {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
+      @apply flex flex-wrap items-baseline;
     }
 
     .print-line h3 {
-      font-size: 9.2pt;
-      font-weight: 500;
+      @apply text-[9.2pt] font-medium;
     }
 
     .print-line .org {
-      margin-top: 0;
-    }
-
-    .print-line .org::before {
-      content: "·";
-      margin: 0 0.35em;
+      @apply mt-0 before:mx-[0.35em] before:content-['·'];
     }
   }
 </style>

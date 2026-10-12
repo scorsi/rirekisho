@@ -7,48 +7,12 @@ interface Props {
 const { n, title, class: className } = Astro.props;
 ---
 
-<section class={className}>
-  <h2>
-    <span class="n">{String(n).padStart(2, "0")}</span>
+<section class:list={["mt-13 print:mt-3", className]}>
+  <h2 class="mb-2 flex items-baseline gap-3.5 border-b border-rule pb-3 font-serif text-[26px]/[1.2] font-medium print:mb-0 print:break-after-avoid print:pb-1 print:text-[14pt]">
+    <span class="font-mono text-[12px]/[normal] font-medium text-shu print:text-[7.5pt]">
+      {String(n).padStart(2, "0")}
+    </span>
     {title}
   </h2>
   <slot />
 </section>
-
-<style>
-  section {
-    margin-top: 52px;
-  }
-
-  h2 {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    font: 500 26px/1.2 var(--serif);
-    padding-bottom: 12px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .n {
-    font: 500 12px var(--mono);
-    color: var(--shu);
-  }
-
-  @media print {
-    section {
-      margin-top: 12px;
-    }
-
-    h2 {
-      break-after: avoid;
-      font-size: 14pt;
-      padding-bottom: 4px;
-      margin-bottom: 0;
-    }
-
-    .n {
-      font-size: 7.5pt;
-    }
-  }
-</style>

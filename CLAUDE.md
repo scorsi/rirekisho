@@ -16,6 +16,15 @@ Guidance for Claude Code when working in this repo. See [README.md](README.md) f
   `passthroughImageService` and are pre-sized by hand: `src/assets/photo.webp` is a 320 px wide,
   cropped, black-and-white WebP. A new photo gets the same treatment (crop, resize, webp) outside
   the build, never by adding sharp back.
+- **Tailwind v4** (`@tailwindcss/vite`), utilities in the markup. A component `<style>` only for
+  what classes can't say well (rules keyed on a parent class), using `@apply` after an
+  `@reference` to `global.css`. Gotchas, each one cost a pixel-diff to find:
+  - `/[normal]`, not `/normal`: Tailwind's `leading-normal` is 1.5, while CSS `line-height: normal`
+    (what a `font:` shorthand gave) follows the font's own metrics.
+  - Responsive variants are ours, screen only: `tablet:` (≤ 900 px), `narrow:` (≤ 640), `phone:`
+    (≤ 600), in `global.css`. Tailwind's `max-*` would also match the ~700 px printed page.
+  - A component `<style>` is unlayered, so it beats any utility: never set the same property in
+    both.
 - One Svelte island only, `src/components/ThemeToggle.svelte` (`client:only`): everything else is
   static Astro. Add an island only for something that genuinely needs client state.
 
@@ -63,7 +72,8 @@ file-server` and prints `/fr/` and `/en/` with Chromium's own `--print-to-pdf` t
 A classic, editorial résumé anyone can read, with discreet "nerd" touches. Ink on paper, a single
 vermilion (朱) accent. Refine it; don't reinvent it.
 
-- **Colours** are tokens in `src/styles/global.css`, never literals in components.
+- **Colours** are tokens in `src/styles/global.css` (plain custom properties, exposed to Tailwind by
+  `@theme inline` as `ink`, `paper`, `muted`, `rule`, `shu`…), never literals in components.
   Light: bg `#f7f5f0`, paper `#fffefb`, ink `#1a1917`, muted `#736e66`, rules `#e2ddd3`, vermilion
   `#c23b22` (soft `#f4e1dc`). Dark: bg `#121110`, paper `#181716`, ink `#ebe7df`, muted `#9b958b`,
   rules `#2c2a27`, vermilion `#ec6a4f`.
@@ -97,15 +107,15 @@ vermilion (朱) accent. Refine it; don't reinvent it.
 - **One page.** Margins 12/13 mm, always light. No top bar, seal, vertical label or footer; the
   "online version" QR code sits top right. The web page holds the detail, the PDF a digest.
 - Two columns: experience and education on the left, skills / languages / interests in a 50 mm
-  column on the right (`.body`/`.main` wrappers, `display: contents` on screen). Dates go above
+  column on the right (wrappers that are `contents` on screen, `print:grid` in print). Dates go above
   each title, a date column would leave the text too narrow.
 - Each position prints its `pdf_summary` (a short paragraph) instead of its summary and highlights;
   `compact` positions fold into one generated line; education and interests print on one line; no
   tags.
 - Tighter sizes: body 9.2 pt, name 30 pt. Don't shrink type to make it fit: shorten the text.
 - `break-inside: avoid` on entries, `break-after: avoid` on headings.
-- **Every responsive rule is scoped to `@media screen`**, so none of it leaks into print. Keep it
-  that way when adding breakpoints.
+- **Every responsive rule is scoped to `@media screen`** (the `tablet:`/`narrow:`/`phone:`
+  variants), so none of it leaks into print. Keep it that way when adding breakpoints.
 
 ## Dependencies and Nix
 

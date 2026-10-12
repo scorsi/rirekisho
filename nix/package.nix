@@ -34,7 +34,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     inherit pnpm;
     fetcherVersion = 4;
     # Refresh after any change to pnpm-lock.yaml: set to "", build, copy the hash from the error.
-    hash = "sha256-j0DPgwLXUcNFxX38NSdU/QoEO3thRMmBGEDevXfL5Uk=";
+    hash = "sha256-ZXsA0mfiem1QBRJQvAtR4PCI2el7I54RMLe3uDtxvGM=";
   };
 
   nativeBuildInputs = [
